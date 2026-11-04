@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://m0s7ntlmcgax"]
+
+[ext_resource type="Script" uid="uid://ce2ubgvnrmr2h" path="res://Itens/Scripts/Player.gd" id="1_82i17"]
+[ext_resource type="Texture2D" uid="uid://bnt1raqsxe6h4" path="res://Itens/Sprites/Sprite-Player.png" id="1_wydmf"]
+[ext_resource type="Texture2D" uid="uid://qj3lypg2dpbp" path="res://Itens/Sprites/Sprite-shadow.png" id="2_ibx38"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
+size = Vector2(24, 23)
+
+[node name="Player" type="CharacterBody2D" unique_id=813289457 node_paths=PackedStringArray("Sprite")]
+y_sort_enabled = true
+script = ExtResource("1_82i17")
+Sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=26733964]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_k0h2g")
+
+[node name="Sombra" type="Sprite2D" parent="." unique_id=1051552701]
+y_sort_enabled = true
+position = Vector2(0, 12)
+texture = ExtResource("2_ibx38")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1247075746]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("1_wydmf")
+hframes = 3
