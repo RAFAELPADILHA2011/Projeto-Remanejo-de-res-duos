@@ -1,9 +1,40 @@
 [gd_scene format=3 uid="uid://h3ibdqv41tku"]
 
-[ext_resource type="Texture2D" uid="uid://diwvihm1djdec" path="res://Itens/Sprites/Sprite-tileset.png" id="1_2d02y"]
 [ext_resource type="Script" uid="uid://2qtk8syxm35h" path="res://Itens/scenes/QuitPopup.gd" id="1_1877r"]
+[ext_resource type="Texture2D" uid="uid://jkrgwk8sfk3d" path="res://Itens/Sprites/Sprite-WindowPopup.png" id="2_fjaba"]
+[ext_resource type="Shader" uid="uid://cu0d84p127vwc" path="res://Game/shaders/BlurShader.gdshader" id="2_mtnab"]
+[ext_resource type="Texture2D" uid="uid://ds3ca78ytk0jy" path="res://Itens/Sprites/Sprite-PopupButtons.png" id="3_mtnab"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2d02y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jqwh"]
+shader = ExtResource("2_mtnab")
+shader_parameter/intencidade_borrao = 2.50000011875
+shader_parameter/flash_cor = Color(0.050877184, 4.4280292e-05, 0.1792053, 1)
+shader_parameter/valor_flash = 0.60000000894072
+shader_parameter/transparencia_flash = 0.6000000285
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0h2g"]
+atlas = ExtResource("3_mtnab")
+region = Rect2(0, 0, 100, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtnab"]
+atlas = ExtResource("3_mtnab")
+region = Rect2(0, 90, 100, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjaba"]
+atlas = ExtResource("3_mtnab")
+region = Rect2(0, 45, 100, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qi5k"]
+atlas = ExtResource("3_mtnab")
+region = Rect2(100, 0, 100, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqxlq"]
+atlas = ExtResource("3_mtnab")
+region = Rect2(100, 90, 100, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0njea"]
+atlas = ExtResource("3_mtnab")
+region = Rect2(100, 45, 100, 45)
 
 [node name="QuitPopup" type="CanvasLayer" unique_id=1353400089 node_paths=PackedStringArray("PopupSair", "botaoSair", "botaoVoltar")]
 script = ExtResource("1_1877r")
@@ -12,42 +43,34 @@ botaoSair = NodePath("Node2D/Sair")
 botaoVoltar = NodePath("Node2D/voltar")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=987190474]
-modulate = Color(1, 1, 1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=621611554]
+material = SubResource("ShaderMaterial_6jqwh")
+offset_top = -12.0
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=2017675666]
 position = Vector2(320, 180)
-scale = Vector2(10, 5)
-texture = ExtResource("1_2d02y")
-hframes = 7
-vframes = 3
+texture = ExtResource("2_fjaba")
 
-[node name="voltar" type="Button" parent="Node2D" unique_id=1006354588]
-offset_left = 178.0
-offset_top = 220.0
-offset_right = 282.0
-offset_bottom = 244.0
-text = "Voltar"
+[node name="voltar" type="TextureButton" parent="Node2D" unique_id=1805982477]
+offset_left = 169.0
+offset_top = 197.0
+offset_right = 269.0
+offset_bottom = 242.0
+pivot_offset = Vector2(50, 22.5)
+texture_normal = SubResource("AtlasTexture_k0h2g")
+texture_pressed = SubResource("AtlasTexture_mtnab")
+texture_hover = SubResource("AtlasTexture_fjaba")
+ignore_texture_size = true
+stretch_mode = 3
 
-[node name="Sair" type="Button" parent="Node2D" unique_id=472064898]
-offset_left = 357.0
-offset_top = 222.0
-offset_right = 461.0
-offset_bottom = 246.0
-text = "Sair"
-
-[node name="Label" type="Label" parent="Node2D" unique_id=1224370716]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 161.0
-offset_top = 116.0
-offset_right = 481.0
-offset_bottom = 144.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Deseja sair do jogo?"
-label_settings = SubResource("LabelSettings_2d02y")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Sair" type="TextureButton" parent="Node2D" unique_id=797530337]
+offset_left = 371.0
+offset_top = 197.0
+offset_right = 475.0
+offset_bottom = 242.0
+texture_normal = SubResource("AtlasTexture_8qi5k")
+texture_pressed = SubResource("AtlasTexture_dqxlq")
+texture_hover = SubResource("AtlasTexture_0njea")
