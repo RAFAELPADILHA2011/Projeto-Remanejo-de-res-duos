@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cxdsajbrosdmp"]
+
+[ext_resource type="Script" uid="uid://cr05ma0v66rwe" path="res://Itens/scenes/porta.gd" id="1_tm7um"]
+[ext_resource type="Texture2D" uid="uid://dr1jlx4v7wce4" path="res://Itens/Sprites/Sprite-Porta.png" id="2_h2w00"]
+[ext_resource type="PackedScene" uid="uid://h3ibdqv41tku" path="res://Itens/scenes/quitPop.tscn" id="3_h2w00"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
+size = Vector2(34, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jqwh"]
+size = Vector2(34, 9)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1818051741]
+
+[node name="Porta" type="Area2D" parent="." unique_id=1009025822 node_paths=PackedStringArray("QuitPopup")]
+script = ExtResource("1_tm7um")
+QuitPopup = NodePath("../QuitPopup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Porta" unique_id=273863486]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_k0h2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063697546]
+use_parent_material = true
+texture = ExtResource("2_h2w00")
+
+[node name="QuitPopup" parent="." unique_id=1353400089 instance=ExtResource("3_h2w00")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1537774697]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_6jqwh")

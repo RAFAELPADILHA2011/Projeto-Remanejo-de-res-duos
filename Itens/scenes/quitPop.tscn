@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://h3ibdqv41tku"]
+
+[ext_resource type="Texture2D" uid="uid://diwvihm1djdec" path="res://Itens/Sprites/Sprite-tileset.png" id="1_2d02y"]
+[ext_resource type="Script" uid="uid://2qtk8syxm35h" path="res://Itens/scenes/QuitPopup.gd" id="1_1877r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2d02y"]
+
+[node name="QuitPopup" type="CanvasLayer" unique_id=1353400089 node_paths=PackedStringArray("PopupSair", "botaoSair", "botaoVoltar")]
+script = ExtResource("1_1877r")
+PopupSair = NodePath("Node2D")
+botaoSair = NodePath("Node2D/Sair")
+botaoVoltar = NodePath("Node2D/voltar")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=987190474]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=2017675666]
+position = Vector2(320, 180)
+scale = Vector2(10, 5)
+texture = ExtResource("1_2d02y")
+hframes = 7
+vframes = 3
+
+[node name="voltar" type="Button" parent="Node2D" unique_id=1006354588]
+offset_left = 178.0
+offset_top = 220.0
+offset_right = 282.0
+offset_bottom = 244.0
+text = "Voltar"
+
+[node name="Sair" type="Button" parent="Node2D" unique_id=472064898]
+offset_left = 357.0
+offset_top = 222.0
+offset_right = 461.0
+offset_bottom = 246.0
+text = "Sair"
+
+[node name="Label" type="Label" parent="Node2D" unique_id=1224370716]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 161.0
+offset_top = 116.0
+offset_right = 481.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Deseja sair do jogo?"
+label_settings = SubResource("LabelSettings_2d02y")
+horizontal_alignment = 1
+vertical_alignment = 1

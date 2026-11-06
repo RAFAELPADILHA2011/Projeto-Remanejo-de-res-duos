@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var Sprite : Sprite2D
 
 const VEL : float = 400
 
-const ACEL : float = 0.5
+const ACEL : float = 0.3
 
-const DESA : float = 0.1
+const DESA : float = 0.2
 
 var dir : Vector2 = Vector2.ZERO
 

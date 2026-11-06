@@ -17,8 +17,17 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/size/mode=3
+window/size/initial_position_type=3
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom_font="uid://ca814pk7hxdp2"
 
 [input]
 
