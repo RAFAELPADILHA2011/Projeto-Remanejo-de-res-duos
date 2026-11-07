@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var Anim : AnimationPlayer
+
 @export var Sprite : Sprite2D
 
 const VEL : float = 400
@@ -34,11 +36,15 @@ func move(_delta : float):
 
 		velocity = lerp(velocity, (dir.normalized() * VEL * dt), DESA)
 
+func animacao(_nome : StringName):
+	if _nome != Anim.current_animation: Anim.current_animation = _nome
+	Anim.play(Anim.current_animation)
+
 func spritePos(_dir : Vector2):
 
 	if _dir.x != 0:
 
-		Sprite.frame = 2
+		animacao("lado")
 
 		Sprite.flip_h = false if _dir.x > 0 else true
 
@@ -46,9 +52,9 @@ func spritePos(_dir : Vector2):
 
 	elif _dir.y > 0:
 
-		Sprite.frame = 0
+		animacao("baixo")
 
 		return
 
-	Sprite.frame = 1
+	animacao("cima")
 	

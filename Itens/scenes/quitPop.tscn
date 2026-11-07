@@ -36,13 +36,15 @@ region = Rect2(100, 90, 100, 45)
 atlas = ExtResource("3_mtnab")
 region = Rect2(100, 45, 100, 45)
 
-[node name="QuitPopup" type="CanvasLayer" unique_id=1353400089 node_paths=PackedStringArray("PopupSair", "botaoSair", "botaoVoltar")]
+[node name="QuitPopup" type="CanvasLayer" unique_id=1353400089 node_paths=PackedStringArray("popup", "Fundo", "botaoSair", "botaoVoltar")]
 script = ExtResource("1_1877r")
-PopupSair = NodePath("Node2D")
+popup = NodePath("Node2D")
+Fundo = NodePath("Node2D/ColorRect")
 botaoSair = NodePath("Node2D/Sair")
 botaoVoltar = NodePath("Node2D/voltar")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=987190474]
+modulate = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=621611554]
 material = SubResource("ShaderMaterial_6jqwh")
