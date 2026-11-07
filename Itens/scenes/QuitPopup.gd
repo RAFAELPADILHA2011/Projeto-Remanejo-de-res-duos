@@ -40,6 +40,7 @@ func _ready():
 	botaoVoltar.button_down.connect(voltarPrecionado)
 
 func aparecer():
+	get_tree().paused = true
 	if tween: tween.kill()
 	tween = create_tween().bind_node(popup).set_parallel()
 	tween.tween_property(popup, "position:y", NORMAL_POS, SEC)
@@ -59,6 +60,7 @@ func voltarPrecionado():
 	tween.tween_property(Fundo, "material:shader_parameter/intencidade_borrao", 0, SEC_LONGO)
 	await tween.finished
 	possoPrecionar = false
+	get_tree().paused = false
 
 func sairPrecionado():
 	if not possoPrecionar: return

@@ -37,6 +37,7 @@ atlas = ExtResource("3_mtnab")
 region = Rect2(100, 45, 100, 45)
 
 [node name="QuitPopup" type="CanvasLayer" unique_id=1353400089 node_paths=PackedStringArray("popup", "Fundo", "botaoSair", "botaoVoltar")]
+process_mode = 2
 script = ExtResource("1_1877r")
 popup = NodePath("Node2D")
 Fundo = NodePath("Node2D/ColorRect")
