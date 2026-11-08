@@ -30,7 +30,6 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_k0h2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2063697546]
-use_parent_material = true
 texture = ExtResource("2_h2w00")
 
 [node name="QuitPopup" parent="." unique_id=1353400089 instance=ExtResource("3_h2w00")]

@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://l86nhe2t83rr"]
+
+[ext_resource type="Script" uid="uid://cfhsed1m1qc7x" path="res://Itens/scenes/menu.gd" id="1_gt5kl"]
+[ext_resource type="Texture2D" uid="uid://baq7ledb8tdel" path="res://Game/Sprites/Sprite-fundo.png" id="2_7vph8"]
+[ext_resource type="Shader" uid="uid://b0lb78e3eprbr" path="res://Game/shaders/menuBackground.gdshader" id="2_nonig"]
+[ext_resource type="Texture2D" uid="uid://bpied7weq2jqv" path="res://Game/Sprites/Sprite-ParticlasBolhas.png" id="3_43og2"]
+[ext_resource type="Texture2D" uid="uid://ciwt8jtevwju6" path="res://Game/Sprites/Sprite-Titulo.png" id="6_7o77k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nonig"]
+shader = ExtResource("2_nonig")
+shader_parameter/VEL = 0.40000000596048
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k0h2g"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_2ckh1"]
+_data = [Vector2(0, 0.91300666), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_abf0k"]
+curve = SubResource("Curve_2ckh1")
+
+[sub_resource type="Curve" id="Curve_wfjvr"]
+_data = [Vector2(0.0029461235, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nvw8n"]
+curve = SubResource("Curve_wfjvr")
+
+[sub_resource type="Gradient" id="Gradient_7vph8"]
+offsets = PackedFloat32Array(0, 0.671875, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.6117647, 0.61960787, 0.96862745, 0.96862745, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_00eda"]
+gradient = SubResource("Gradient_7vph8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jqwh"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(-1, 1, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = -272.19998
+angle_max = 142.40001
+direction = Vector3(-1, -1, 0)
+spread = 39.113
+initial_velocity_max = 191.86
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_00eda")
+alpha_curve = SubResource("CurveTexture_abf0k")
+anim_offset_min = 0.037
+anim_offset_max = 0.31469998
+anim_offset_curve = SubResource("CurveTexture_nvw8n")
+
+[sub_resource type="Environment" id="Environment_k0h2g"]
+background_mode = 3
+background_canvas_max_layer = 1
+tonemap_mode = 1
+glow_enabled = true
+glow_intensity = 1.1
+glow_bloom = 0.4
+fog_light_color = Color(0.6173505, 0.4854616, 0.7279416, 1)
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1
+
+[node name="Menu" type="CanvasLayer" unique_id=1855890612 node_paths=PackedStringArray("ParticulaBolhas", "Titulo")]
+script = ExtResource("1_gt5kl")
+ParticulaBolhas = NodePath("Elementos/GPUParticles2D")
+Titulo = NodePath("Elementos/Titulo")
+
+[node name="Elementos" type="Node2D" parent="." unique_id=1962105310]
+
+[node name="ColorRect" type="TextureRect" parent="Elementos" unique_id=667943513]
+modulate = Color(0.80784315, 0.29411766, 0.63529414, 1)
+material = SubResource("ShaderMaterial_nonig")
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_7vph8")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Titulo" type="Sprite2D" parent="Elementos" unique_id=1326601249]
+position = Vector2(250, 60)
+scale = Vector2(2, 2)
+texture = ExtResource("6_7o77k")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Elementos" unique_id=455107666]
+material = SubResource("CanvasItemMaterial_k0h2g")
+position = Vector2(644, 283)
+scale = Vector2(2, 2)
+emitting = false
+amount = 20
+texture = ExtResource("3_43og2")
+lifetime = 1.5999999999999999
+explosiveness = 0.24
+randomness = 0.26
+visibility_rect = Rect2(-100, -25, 200, 50)
+process_material = SubResource("ParticleProcessMaterial_6jqwh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=48688538]
+environment = SubResource("Environment_k0h2g")
