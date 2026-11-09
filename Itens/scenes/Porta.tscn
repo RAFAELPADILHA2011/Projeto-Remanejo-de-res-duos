@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxdsajbrosdmp"]
 
-[ext_resource type="Script" uid="uid://cr05ma0v66rwe" path="res://Itens/scenes/porta.gd" id="1_tm7um"]
+[ext_resource type="Script" uid="uid://cr05ma0v66rwe" path="res://Itens/Scripts/porta.gd" id="1_tm7um"]
 [ext_resource type="Texture2D" uid="uid://dr1jlx4v7wce4" path="res://Itens/Sprites/Sprite-Porta.png" id="2_h2w00"]
 [ext_resource type="PackedScene" uid="uid://h3ibdqv41tku" path="res://Itens/scenes/quitPop.tscn" id="3_h2w00"]
 

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@export var Menu : CanvasLayer
+
 @export var popup : Node2D
 
 @export var Fundo : ColorRect
@@ -64,4 +66,5 @@ func voltarPrecionado():
 
 func sairPrecionado():
 	if not possoPrecionar: return
-	get_tree().quit()
+	Menu.retornarMenu()
+	voltarPrecionado()

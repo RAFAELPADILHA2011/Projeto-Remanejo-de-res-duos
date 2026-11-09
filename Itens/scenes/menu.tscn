@@ -1,16 +1,25 @@
 [gd_scene format=3 uid="uid://l86nhe2t83rr"]
 
-[ext_resource type="Script" uid="uid://cfhsed1m1qc7x" path="res://Itens/scenes/menu.gd" id="1_gt5kl"]
+[ext_resource type="Script" uid="uid://cfhsed1m1qc7x" path="res://Itens/Scripts/menu.gd" id="1_gt5kl"]
 [ext_resource type="Texture2D" uid="uid://baq7ledb8tdel" path="res://Game/Sprites/Sprite-fundo.png" id="2_7vph8"]
 [ext_resource type="Shader" uid="uid://b0lb78e3eprbr" path="res://Game/shaders/menuBackground.gdshader" id="2_nonig"]
 [ext_resource type="Texture2D" uid="uid://bpied7weq2jqv" path="res://Game/Sprites/Sprite-ParticlasBolhas.png" id="3_43og2"]
+[ext_resource type="Theme" uid="uid://cnkctxuno7f4y" path="res://DefaulThemeBtn.tres" id="6_5or0g"]
 [ext_resource type="Texture2D" uid="uid://ciwt8jtevwju6" path="res://Game/Sprites/Sprite-Titulo.png" id="6_7o77k"]
+[ext_resource type="AudioStream" uid="uid://br2fy65ro1d3f" path="res://Game/Themes/Theme-Menu.ogg" id="7_jn24y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nonig"]
 shader = ExtResource("2_nonig")
 shader_parameter/VEL = 0.40000000596048
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k0h2g"]
+[sub_resource type="Gradient" id="Gradient_jn24y"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k0h2g"]
+gradient = SubResource("Gradient_jn24y")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nonig"]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
@@ -37,7 +46,8 @@ colors = PackedColorArray(0, 0, 0, 0, 0.6117647, 0.61960787, 0.96862745, 0.96862
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_00eda"]
 gradient = SubResource("Gradient_7vph8")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jqwh"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5or0g"]
+resource_local_to_scene = true
 particle_flag_rotate_y = true
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(-1, 1, 1)
@@ -59,27 +69,375 @@ anim_offset_min = 0.037
 anim_offset_max = 0.31469998
 anim_offset_curve = SubResource("CurveTexture_nvw8n")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k0h2g"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jqwh"]
+resource_local_to_scene = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+angle_min = -272.19998
+angle_max = 142.40001
+direction = Vector3(1, -1, 0)
+spread = 39.113
+initial_velocity_max = 191.86
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_00eda")
+alpha_curve = SubResource("CurveTexture_abf0k")
+anim_offset_min = 0.037
+anim_offset_max = 0.31469998
+anim_offset_curve = SubResource("CurveTexture_nvw8n")
+
+[sub_resource type="Animation" id="Animation_5or0g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Botões:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 180)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Botões:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Elementos/Bolhas2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Elementos/Bolhas:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Elementos/LuzInferior:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.822, 0.051, 0.316, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Elementos/LuzInferior:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Elementos/Titulo:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 90)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Elementos/Titulo:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_jn24y"]
+resource_name = "entrada"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.039215688, 0.019607844, 0.14901961, 1), Color(0.039215688, 0.019607844, 0.14901961, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Botões:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.73333335, 1),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(320, 400), Vector2(320, 170), Vector2(320, 180)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Botões:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 1.3), Vector2(1.3, 0.7), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Elementos/Bolhas2:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.73258907),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Elementos/Bolhas:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.73258907),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Elementos/LuzInferior:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Elementos/Titulo:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.099999994, 0.4, 0.6666667),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(320, -100), Vector2(320, 130), Vector2(320, 90)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Elementos/Titulo:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.099999994, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1.4, 2.6), Vector2(2.6, 1.4), Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_56apw"]
+resource_name = "saida"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Elementos/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(-0.5, -0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.10268981, 0.03286979, 0.34915823, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Botões:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(320, 180), Vector2(320, 160), Vector2(320, 400)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Botões:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668, 0.46666667),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.7, 1.3), Vector2(1.3, 0.7), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Elementos/Titulo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6333333),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector2(320, 90), Vector2(320, 130), Vector2(320, -50)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Elementos/Titulo:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.6, 1.4), Vector2(1.4, 2.6), Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Elementos/Bolhas:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Elementos/Bolhas2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Elementos/LuzInferior:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_56apw"]
+_data = {
+&"RESET": SubResource("Animation_5or0g"),
+&"entrada": SubResource("Animation_jn24y"),
+&"saida": SubResource("Animation_56apw")
+}
+
 [sub_resource type="Environment" id="Environment_k0h2g"]
 background_mode = 3
 background_canvas_max_layer = 1
 tonemap_mode = 1
 glow_enabled = true
-glow_intensity = 1.1
+glow_intensity = 1.68
 glow_bloom = 0.4
 fog_light_color = Color(0.6173505, 0.4854616, 0.7279416, 1)
 adjustment_enabled = true
 adjustment_contrast = 1.1
 adjustment_saturation = 1.1
 
-[node name="Menu" type="CanvasLayer" unique_id=1855890612 node_paths=PackedStringArray("ParticulaBolhas", "Titulo")]
+[node name="Menu" type="CanvasLayer" unique_id=1855890612 node_paths=PackedStringArray("Anim", "BrilhoInferior", "Titulo", "ContainerBotoes", "Comecar", "Opcoes", "Sair")]
 script = ExtResource("1_gt5kl")
-ParticulaBolhas = NodePath("Elementos/GPUParticles2D")
+Anim = NodePath("AnimationPlayer")
+BrilhoInferior = NodePath("Elementos/LuzInferior")
 Titulo = NodePath("Elementos/Titulo")
+ContainerBotoes = NodePath("Botões")
+Comecar = NodePath("Botões/Começar")
+Opcoes = NodePath("Botões/Opções")
+Sair = NodePath("Botões/Sair")
 
 [node name="Elementos" type="Node2D" parent="." unique_id=1962105310]
 
-[node name="ColorRect" type="TextureRect" parent="Elementos" unique_id=667943513]
-modulate = Color(0.80784315, 0.29411766, 0.63529414, 1)
+[node name="TextureRect" type="TextureRect" parent="Elementos" unique_id=667943513]
 material = SubResource("ShaderMaterial_nonig")
 offset_right = 640.0
 offset_bottom = 360.0
@@ -88,22 +446,87 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Titulo" type="Sprite2D" parent="Elementos" unique_id=1326601249]
-position = Vector2(250, 60)
+position = Vector2(320, 90)
 scale = Vector2(2, 2)
 texture = ExtResource("6_7o77k")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Elementos" unique_id=455107666]
-material = SubResource("CanvasItemMaterial_k0h2g")
-position = Vector2(644, 283)
+[node name="LuzInferior" type="TextureRect" parent="Elementos" unique_id=1341252889]
+modulate = Color(0.822, 0.051, 0.316, 1)
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 181.0
+offset_right = 660.0
+offset_bottom = 381.0
+grow_vertical = 0
+pivot_offset = Vector2(320, 179)
+texture = SubResource("GradientTexture2D_k0h2g")
+
+[node name="Bolhas" type="GPUParticles2D" parent="Elementos" unique_id=2083037938]
+material = SubResource("CanvasItemMaterial_nonig")
+position = Vector2(617, 387)
 scale = Vector2(2, 2)
-emitting = false
 amount = 20
 texture = ExtResource("3_43og2")
-lifetime = 1.5999999999999999
+lifetime = 1.6
+explosiveness = 0.24
+randomness = 0.26
+visibility_rect = Rect2(-100, -25, 200, 50)
+process_material = SubResource("ParticleProcessMaterial_5or0g")
+
+[node name="Bolhas2" type="GPUParticles2D" parent="Elementos" unique_id=181711180]
+material = SubResource("CanvasItemMaterial_k0h2g")
+position = Vector2(20, 387)
+scale = Vector2(2, 2)
+amount = 20
+texture = ExtResource("3_43og2")
+lifetime = 1.6
 explosiveness = 0.24
 randomness = 0.26
 visibility_rect = Rect2(-100, -25, 200, 50)
 process_material = SubResource("ParticleProcessMaterial_6jqwh")
 
+[node name="Botões" type="Node2D" parent="." unique_id=1892683414]
+position = Vector2(200, 180)
+
+[node name="Começar" type="Button" parent="Botões" unique_id=1624604677]
+offset_left = -120.0
+offset_right = 120.0
+offset_bottom = 24.0
+theme = ExtResource("6_5or0g")
+text = "Começar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Opções" type="Button" parent="Botões" unique_id=1470862968]
+offset_left = -100.0
+offset_top = 35.0
+offset_right = 100.0
+offset_bottom = 59.0
+pivot_offset = Vector2(100, 0)
+theme = ExtResource("6_5or0g")
+text = "Opções"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sair" type="Button" parent="Botões" unique_id=1918229976]
+offset_left = -60.0
+offset_top = 70.0
+offset_right = 60.0
+offset_bottom = 94.0
+theme = ExtResource("6_5or0g")
+text = "Sair"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=595799034]
+libraries/ = SubResource("AnimationLibrary_56apw")
+autoplay = &"entrada"
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=48688538]
 environment = SubResource("Environment_k0h2g")
+
+[node name="Theme" type="AudioStreamPlayer" parent="." unique_id=1089451117]
+stream = ExtResource("7_jn24y")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true

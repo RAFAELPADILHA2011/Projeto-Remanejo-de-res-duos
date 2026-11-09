@@ -6,6 +6,8 @@ class_name Player
 
 @export var Sprite : Sprite2D
 
+@export var SomAndar : EfeitoSom
+
 const VEL : float = 400
 
 const ACEL : float = 0.3
@@ -15,6 +17,8 @@ const DESA : float = 0.2
 var dir : Vector2 = Vector2.ZERO
 
 var dt : float = 0.0
+
+var tempoPasso : float = 0.0
 
 func _process(_delta : float):
 	move(_delta)
@@ -35,6 +39,8 @@ func move(_delta : float):
 	else:
 
 		velocity = lerp(velocity, (dir.normalized() * VEL * dt), DESA)
+
+	#rodaSomAndar()
 
 func animacao(_nome : StringName):
 	if _nome != Anim.current_animation: Anim.current_animation = _nome
@@ -57,4 +63,9 @@ func spritePos(_dir : Vector2):
 		return
 
 	animacao("cima")
+	
+func rodaSomAndar():
+	if dir == Vector2.ZERO: return
+	SomAndar.rodaSom()
+	
 	

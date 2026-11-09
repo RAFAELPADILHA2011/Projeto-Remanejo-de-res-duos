@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h3ibdqv41tku"]
 
-[ext_resource type="Script" uid="uid://2qtk8syxm35h" path="res://Itens/scenes/QuitPopup.gd" id="1_1877r"]
+[ext_resource type="Script" uid="uid://2qtk8syxm35h" path="res://Itens/Scripts/QuitPopup.gd" id="1_1877r"]
 [ext_resource type="Texture2D" uid="uid://jkrgwk8sfk3d" path="res://Itens/Sprites/Sprite-WindowPopup.png" id="2_fjaba"]
 [ext_resource type="Shader" uid="uid://cu0d84p127vwc" path="res://Game/shaders/BlurShader.gdshader" id="2_mtnab"]
 [ext_resource type="Texture2D" uid="uid://ds3ca78ytk0jy" path="res://Itens/Sprites/Sprite-PopupButtons.png" id="3_mtnab"]
