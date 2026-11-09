@@ -66,6 +66,6 @@ func spritePos(_dir : Vector2):
 	
 func rodaSomAndar():
 	if dir == Vector2.ZERO: return
-	SomAndar.rodaSom()
+	#SomAndar.rodaSom()
 	
 	
