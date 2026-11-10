@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drtgk865y855d"]
 
 [ext_resource type="PackedScene" uid="uid://re74fwadvv05" path="res://Game/Scenes/mundo.tscn" id="1_rediy"]
-[ext_resource type="PackedScene" uid="uid://l86nhe2t83rr" path="res://Itens/scenes/menu.tscn" id="2_v0c6k"]
+[ext_resource type="PackedScene" uid="uid://l86nhe2t83rr" path="res://Game/Scenes/menu.tscn" id="2_v0c6k"]
 [ext_resource type="PackedScene" uid="uid://chs3cl2jdmq8b" path="res://Game/Scenes/Transition.tscn" id="3_tt18b"]
 
 [node name="Jogo" type="Node2D" unique_id=1019289205]
@@ -11,9 +11,10 @@
 [node name="QuitPopup" parent="Mundo/Elementos/Porta" parent_id_path=PackedInt32Array(1703642314, 1818051741) index="2" unique_id=1353400089 node_paths=PackedStringArray("Menu")]
 Menu = NodePath("../../../../Menu")
 
-[node name="Menu" parent="." unique_id=1855890612 node_paths=PackedStringArray("TransitionScene", "Mundo") instance=ExtResource("2_v0c6k")]
+[node name="Menu" parent="." unique_id=1855890612 node_paths=PackedStringArray("TransitionScene", "Mundo", "player") instance=ExtResource("2_v0c6k")]
 TransitionScene = NodePath("../CanvasLayer")
 Mundo = NodePath("../Mundo")
+player = NodePath("../Mundo/Elementos/Player")
 
 [node name="CanvasLayer" parent="." unique_id=22563931 instance=ExtResource("3_tt18b")]
 layer = 1

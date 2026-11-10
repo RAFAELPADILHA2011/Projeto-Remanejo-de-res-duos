@@ -6,6 +6,8 @@ extends CanvasLayer
 
 @export var Mundo : Node2D
 
+@export var player : Player
+
 @export var Anim : AnimationPlayer
 
 @export var BrilhoInferior : TextureRect
@@ -16,11 +18,11 @@ extends CanvasLayer
 
 @export_category("Botões")
 
-@export var Comecar : Button
+@export var Comecar : TextureButton
 
-@export var Opcoes : Button
+@export var Opcoes : TextureButton
 
-@export var Sair : Button
+@export var Sair : TextureButton
 
 const TEMPO : float = 1
 
@@ -59,6 +61,7 @@ func _process(_delta: float) -> void:
 	ContainerBotoes.position.y += alturaBotoes
 
 func comecarPresionado():
+	Mundo.process_mode = Node.PROCESS_MODE_DISABLED
 	Anim.play("saida")
 	await Anim.animation_finished
 	TransitionScene.rodaTransicao("entrada")
@@ -71,9 +74,9 @@ func opcoesPresionado():
 	pass
 
 func retornarMenu():
+	Mundo.process_mode = Node.PROCESS_MODE_DISABLED
 	TransitionScene.rodaTransicao("entrada")
 	await TransitionScene.Anim.animation_finished
-	Mundo.process_mode = Node.PROCESS_MODE_PAUSABLE
 	visible = true
 	TransitionScene.rodaTransicao("saida")
 	Anim.play("entrada")

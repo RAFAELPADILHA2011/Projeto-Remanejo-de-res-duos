@@ -16,7 +16,7 @@ glow_intensity = 1.4
 glow_bloom = 0.3
 
 [node name="Mundo" type="Node2D" unique_id=1703642314]
-process_mode = 1
+process_mode = 4
 
 [node name="Mapa" type="Node2D" parent="." unique_id=122163552]
 y_sort_enabled = true

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cr05ma0v66rwe" path="res://Itens/Scripts/porta.gd" id="1_tm7um"]
 [ext_resource type="Texture2D" uid="uid://dr1jlx4v7wce4" path="res://Itens/Sprites/Sprite-Porta.png" id="2_h2w00"]
 [ext_resource type="PackedScene" uid="uid://h3ibdqv41tku" path="res://Itens/scenes/quitPop.tscn" id="3_h2w00"]
+[ext_resource type="AudioStream" uid="uid://cqred0m32hgce" path="res://Itens/Sounds/SFX-OpenDoor.wav" id="4_2koxe"]
+[ext_resource type="Script" uid="uid://db4eoxbfhk32c" path="res://Itens/Scripts/SoundEffect.gd" id="5_4q42f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
 size = Vector2(34, 28)
@@ -21,9 +23,10 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1818051741]
 
-[node name="Porta" type="Area2D" parent="." unique_id=1009025822 node_paths=PackedStringArray("QuitPopup")]
+[node name="Porta" type="Area2D" parent="." unique_id=1009025822 node_paths=PackedStringArray("QuitPopup", "SomPorta")]
 script = ExtResource("1_tm7um")
 QuitPopup = NodePath("../QuitPopup")
+SomPorta = NodePath("../EfeitoSom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Porta" unique_id=273863486]
 position = Vector2(0, 5)
@@ -41,3 +44,11 @@ shape = SubResource("RectangleShape2D_6jqwh")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1179650681]
 color = Color(1, 1, 0.5294118, 1)
 texture = SubResource("GradientTexture2D_iismu")
+
+[node name="EfeitoSom" type="AudioStreamPlayer" parent="." unique_id=1978345740]
+process_mode = 2
+stream = ExtResource("4_2koxe")
+script = ExtResource("5_4q42f")
+AlteracaoPitch = 0.5
+AlteracaoVolume = -1.0
+metadata/_custom_type_script = "uid://db4eoxbfhk32c"

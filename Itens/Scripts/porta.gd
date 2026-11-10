@@ -2,6 +2,8 @@ extends Area2D
 
 @export var QuitPopup : CanvasLayer
 
+@export var SomPorta : EfeitoSom
+
 var podeMostrarPopup : bool = true
 
 func _ready():
@@ -10,6 +12,10 @@ func _ready():
 func areaEntered(_area : Area2D):
 
 	if _area.get_parent() is Player and podeMostrarPopup:
+
+		_area.get_parent().position.y += 20
+
+		SomPorta.rodaSom()
 
 		QuitPopup.aparecer()
 

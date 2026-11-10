@@ -8,11 +8,15 @@ class_name Player
 
 @export var SomAndar : EfeitoSom
 
-const VEL : float = 400
+const VEL : float = 300
 
 const ACEL : float = 0.3
 
 const DESA : float = 0.2
+
+const MAX_TEMPOPASSO : float = 0.5
+
+const DIMINUIDOR_TEMPO : float = 0.025
 
 var dir : Vector2 = Vector2.ZERO
 
@@ -40,7 +44,7 @@ func move(_delta : float):
 
 		velocity = lerp(velocity, (dir.normalized() * VEL * dt), DESA)
 
-	#rodaSomAndar()
+	rodaSomAndar()
 
 func animacao(_nome : StringName):
 	if _nome != Anim.current_animation: Anim.current_animation = _nome
@@ -65,7 +69,12 @@ func spritePos(_dir : Vector2):
 	animacao("cima")
 	
 func rodaSomAndar():
-	if dir == Vector2.ZERO: return
-	#SomAndar.rodaSom()
-	
+	if dir == Vector2.ZERO:
+		tempoPasso = MAX_TEMPOPASSO
+		return
+	tempoPasso -= DIMINUIDOR_TEMPO
+	if tempoPasso <= 0: 
+		tempoPasso = MAX_TEMPOPASSO
+		SomAndar.rodaSom()
+
 	
