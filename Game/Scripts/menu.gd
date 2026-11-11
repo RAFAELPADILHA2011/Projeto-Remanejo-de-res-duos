@@ -6,8 +6,6 @@ extends CanvasLayer
 
 @export var Mundo : Node2D
 
-@export var player : Player
-
 @export var Anim : AnimationPlayer
 
 @export var BrilhoInferior : TextureRect
@@ -15,6 +13,8 @@ extends CanvasLayer
 @export var Titulo : Sprite2D
 
 @export var ContainerBotoes : Node2D
+
+@export var PlayerMenu : Sprite2D
 
 @export_category("Botões")
 
@@ -36,22 +36,25 @@ const MAX_ALTURA : float = 1.2
 
 const MIN_ALTURA : float = 0.5
 
-var tweenTitulo : Tween = null
-
-var tweenBotoes : Tween = null
+const ROTACAO : float = 0.05
 
 var tweenBrilhoInferior : Tween = null
 
 var tweenAlturaBrilho : Tween = null
 
+var tweenGiraPlayerMenu : Tween = null
+
 var alturaBotoes : float = 0
+
+var possoPrecionar : bool = true
 
 func _ready():
 
-	flutuandoTitulo()
-	flutuandoBotoes()
+	Mundo.process_mode = Node.PROCESS_MODE_DISABLED
+
 	mudaBrilhoCor()
 	mudaAlturaBrilho()
+	giraPlayerMenu()
 
 	Comecar.connect("button_down", comecarPresionado)
 	Opcoes.connect("button_down", opcoesPresionado)
@@ -61,6 +64,8 @@ func _process(_delta: float) -> void:
 	ContainerBotoes.position.y += alturaBotoes
 
 func comecarPresionado():
+	if not possoPrecionar: return
+	possoPrecionar = false
 	Mundo.process_mode = Node.PROCESS_MODE_DISABLED
 	Anim.play("saida")
 	await Anim.animation_finished
@@ -69,17 +74,21 @@ func comecarPresionado():
 	visible = false
 	TransitionScene.rodaTransicao("saida")
 	Mundo.process_mode = Node.PROCESS_MODE_INHERIT
+	possoPrecionar = true
 
 func opcoesPresionado():
 	pass
 
 func retornarMenu():
+	if not possoPrecionar: return
+	possoPrecionar = false
 	Mundo.process_mode = Node.PROCESS_MODE_DISABLED
 	TransitionScene.rodaTransicao("entrada")
 	await TransitionScene.Anim.animation_finished
 	visible = true
 	TransitionScene.rodaTransicao("saida")
 	Anim.play("entrada")
+	possoPrecionar = true
 
 func sairPresionado():
 	Anim.play("saida")
@@ -88,17 +97,11 @@ func sairPresionado():
 	await TransitionScene.Anim.animation_finished
 	get_tree().quit()
 
-func flutuandoTitulo():
-	if tweenTitulo: tweenTitulo.kill()
-	tweenTitulo = create_tween().bind_node(self).set_loops()
-	tweenTitulo.tween_property(Titulo, "offset:y", PI, TEMPO)
-	tweenTitulo.tween_property(Titulo, "offset:y", -PI, TEMPO)
-
-func flutuandoBotoes():
-	if tweenBotoes: tweenBotoes.kill()
-	tweenBotoes = create_tween().bind_node(self).set_loops()
-	tweenBotoes.tween_property(self, "alturaBotoes", PI/4, TEMPO_LONGO)
-	tweenBotoes.tween_property(self, "alturaBotoes", -PI/4, TEMPO_LONGO)
+func giraPlayerMenu():
+	if tweenGiraPlayerMenu: tweenGiraPlayerMenu.kill()
+	tweenGiraPlayerMenu = create_tween().bind_node(self).set_loops()
+	tweenGiraPlayerMenu.tween_property(PlayerMenu, "rotation", ROTACAO, TEMPO_LONGO)
+	tweenGiraPlayerMenu.tween_property(PlayerMenu, "rotation", -ROTACAO, TEMPO_LONGO)
 
 func mudaBrilhoCor():
 	if tweenBrilhoInferior: tweenBrilhoInferior.kill()

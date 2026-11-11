@@ -11,10 +11,9 @@
 [node name="QuitPopup" parent="Mundo/Elementos/Porta" parent_id_path=PackedInt32Array(1703642314, 1818051741) index="2" unique_id=1353400089 node_paths=PackedStringArray("Menu")]
 Menu = NodePath("../../../../Menu")
 
-[node name="Menu" parent="." unique_id=1855890612 node_paths=PackedStringArray("TransitionScene", "Mundo", "player") instance=ExtResource("2_v0c6k")]
+[node name="Menu" parent="." unique_id=1855890612 node_paths=PackedStringArray("TransitionScene", "Mundo") instance=ExtResource("2_v0c6k")]
 TransitionScene = NodePath("../CanvasLayer")
 Mundo = NodePath("../Mundo")
-player = NodePath("../Mundo/Elementos/Player")
 
 [node name="CanvasLayer" parent="." unique_id=22563931 instance=ExtResource("3_tt18b")]
 layer = 1
