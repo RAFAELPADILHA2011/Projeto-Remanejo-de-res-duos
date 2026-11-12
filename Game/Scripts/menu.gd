@@ -73,6 +73,7 @@ func comecarPresionado():
 	await TransitionScene.Anim.animation_finished
 	visible = false
 	TransitionScene.rodaTransicao("saida")
+	await TransitionScene.Anim.animation_finished
 	Mundo.process_mode = Node.PROCESS_MODE_INHERIT
 	possoPrecionar = true
 
