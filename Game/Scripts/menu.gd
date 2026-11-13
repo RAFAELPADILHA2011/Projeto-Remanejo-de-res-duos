@@ -16,6 +16,8 @@ extends CanvasLayer
 
 @export var PlayerMenu : Sprite2D
 
+@export var Musica : ThemeController
+
 @export_category("Botões")
 
 @export var Comecar : TextureButton
@@ -51,6 +53,7 @@ var possoPrecionar : bool = true
 func _ready():
 
 	Mundo.process_mode = Node.PROCESS_MODE_DISABLED
+	Musica.tocaMusica(Musica.ThemeMenu)
 
 	mudaBrilhoCor()
 	mudaAlturaBrilho()
@@ -72,6 +75,7 @@ func comecarPresionado():
 	TransitionScene.rodaTransicao("entrada")
 	await TransitionScene.Anim.animation_finished
 	visible = false
+	Musica.tocaMusica(Musica.ThemeGame)
 	TransitionScene.rodaTransicao("saida")
 	await TransitionScene.Anim.animation_finished
 	Mundo.process_mode = Node.PROCESS_MODE_INHERIT
@@ -90,6 +94,7 @@ func retornarMenu():
 	TransitionScene.rodaTransicao("saida")
 	Anim.play("entrada")
 	possoPrecionar = true
+	Musica.tocaMusica(Musica.ThemeMenu)
 
 func sairPresionado():
 	Anim.play("saida")
@@ -97,6 +102,7 @@ func sairPresionado():
 	TransitionScene.rodaTransicao("entrada")
 	await TransitionScene.Anim.animation_finished
 	get_tree().quit()
+	Musica.diminuiVolume()
 
 func giraPlayerMenu():
 	if tweenGiraPlayerMenu: tweenGiraPlayerMenu.kill()

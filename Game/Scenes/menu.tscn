@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dqnsvcf86mfw7" path="res://Game/Sprites/Sprite-OpcoesBtn.png" id="8_71f56"]
 [ext_resource type="Script" uid="uid://djueck0aaxnvj" path="res://Game/Scripts/EfeitoBotao.gd" id="9_e0lca"]
 [ext_resource type="Texture2D" uid="uid://b0ynkex66xbgv" path="res://Game/Sprites/Sprite-Sair.png" id="10_soopo"]
+[ext_resource type="Script" uid="uid://5dgyflv41705" path="res://Game/Scripts/themeController.gd" id="14_hwsf3"]
+[ext_resource type="AudioStream" uid="uid://b3ag6qewohk3t" path="res://Game/Themes/Theme-Game.ogg" id="15_1cnea"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nonig"]
 shader = ExtResource("2_nonig")
@@ -217,30 +219,6 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(502, 237)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Theme:playing")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Theme:volume_db")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_jn24y"]
 resource_name = "entrada"
@@ -339,30 +317,6 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(800, 500), Vector2(490, 220), Vector2(502, 237)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Theme:playing")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Theme:volume_db")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_56apw"]
@@ -463,30 +417,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(502, 237), Vector2(490, 220), Vector2(800, 500)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Theme:volume_db")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -80.0]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Theme:playing")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0.96666664),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_56apw"]
 _data = {
@@ -507,13 +437,14 @@ adjustment_enabled = true
 adjustment_contrast = 1.1
 adjustment_saturation = 1.1
 
-[node name="Menu" type="CanvasLayer" unique_id=1855890612 node_paths=PackedStringArray("Anim", "BrilhoInferior", "Titulo", "ContainerBotoes", "PlayerMenu", "Comecar", "Opcoes", "Sair")]
+[node name="Menu" type="CanvasLayer" unique_id=1855890612 node_paths=PackedStringArray("Anim", "BrilhoInferior", "Titulo", "ContainerBotoes", "PlayerMenu", "Musica", "Comecar", "Opcoes", "Sair")]
 script = ExtResource("1_gt5kl")
 Anim = NodePath("AnimationPlayer")
 BrilhoInferior = NodePath("Elementos/LuzInferior")
 Titulo = NodePath("Elementos/BarraTitulo/Titulo")
 ContainerBotoes = NodePath("Botões")
 PlayerMenu = NodePath("Elementos/PlayerMenu")
+Musica = NodePath("Theme")
 Comecar = NodePath("Botões/Começar")
 Opcoes = NodePath("Botões/Opções")
 Sair = NodePath("Botões/Sair")
@@ -616,5 +547,6 @@ environment = SubResource("Environment_k0h2g")
 
 [node name="Theme" type="AudioStreamPlayer" parent="." unique_id=1089451117]
 process_mode = 3
-stream = ExtResource("7_jn24y")
-parameters/looping = true
+script = ExtResource("14_hwsf3")
+ThemeMenu = ExtResource("7_jn24y")
+ThemeGame = ExtResource("15_1cnea")
