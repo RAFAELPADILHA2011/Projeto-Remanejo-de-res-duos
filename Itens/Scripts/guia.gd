@@ -1,6 +1,4 @@
-extends CharacterBody2D
-
-@export var Area : Area2D = null
+extends EnteragePlayer
 
 @export var Mensagem : Label = null
 
@@ -22,10 +20,6 @@ var tweenPrecionar : Tween = null
 
 var possoComecarDialogo : bool = false
 
-func _ready():
-    Area.area_entered.connect(playerColidindo)
-    Area.area_exited.connect(playerNaoColidindo)
-
 func _process(_delta: float):
     if Input.is_physical_key_pressed(KEY_E) and possoComecarDialogo:
         possoComecarDialogo = false
@@ -34,21 +28,20 @@ func _process(_delta: float):
         dialogo.dados = Dialogos.DIALOGO1
         dialogo.entrandoEmTela()
 
-
 func playerColidindo(_area : Area2D):
-    if _area.get_parent() is Player:
-        if tweenPrecionar: tweenPrecionar.kill()
-        tweenPrecionar = create_tween().bind_node(self)
-        tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ORIGINAL, TEMPO)
-        tweenPrecionar.tween_property(Mensagem, "modulate", COR_ORIGINAL, TEMPO)
-        await tweenPrecionar.finished
-        possoComecarDialogo = true
+    verificacao(_area)
+    if tweenPrecionar: tweenPrecionar.kill()
+    tweenPrecionar = create_tween().bind_node(self)
+    tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ORIGINAL, TEMPO)
+    tweenPrecionar.tween_property(Mensagem, "modulate", COR_ORIGINAL, TEMPO)
+    await tweenPrecionar.finished
+    possoComecarDialogo = true
 
 func playerNaoColidindo(_area : Area2D):
-    if _area.get_parent() is Player: 
-        if tweenPrecionar: tweenPrecionar.kill()
-        tweenPrecionar = create_tween().bind_node(self)
-        tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ESCONDIDO, TEMPO)
-        tweenPrecionar.tween_property(Mensagem, "modulate", COR_ESCONDIDA, TEMPO)
-        await tweenPrecionar.finished
-        possoComecarDialogo = false
+    verificacao(_area) 
+    if tweenPrecionar: tweenPrecionar.kill()
+    tweenPrecionar = create_tween().bind_node(self)
+    tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ESCONDIDO, TEMPO)
+    tweenPrecionar.tween_property(Mensagem, "modulate", COR_ESCONDIDA, TEMPO)
+    await tweenPrecionar.finished
+    possoComecarDialogo = false

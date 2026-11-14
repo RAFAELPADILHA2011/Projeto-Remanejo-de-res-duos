@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ddt6lnywyrdyx"]
+
+[ext_resource type="Texture2D" uid="uid://7eo7tp6ueuag" path="res://Itens/Sprites/moveis/Sprite-balcao.png" id="1_w14u5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
+size = Vector2(30, 116)
+
+[node name="Balcao" type="CharacterBody2D" unique_id=1490575044]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1751161046]
+z_index = 3
+y_sort_enabled = true
+texture = ExtResource("1_w14u5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=605836755]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_k0h2g")

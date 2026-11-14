@@ -5,6 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://cxdsajbrosdmp" path="res://Itens/scenes/Porta.tscn" id="3_ryfhg"]
 [ext_resource type="PackedScene" uid="uid://m0s7ntlmcgax" path="res://Itens/scenes/player.tscn" id="4_e046x"]
 [ext_resource type="Script" uid="uid://be36515kmvrnw" path="res://Game/Scripts/Time.gd" id="5_0bwyg"]
+[ext_resource type="PackedScene" uid="uid://clbmfncrharf7" path="res://Itens/scenes/pia.tscn" id="5_tayns"]
+[ext_resource type="PackedScene" uid="uid://4lb4owoi5aij" path="res://Itens/scenes/mesa.tscn" id="6_ryfhg"]
+[ext_resource type="PackedScene" uid="uid://d2wqpg2xyoqgp" path="res://Itens/scenes/fogao.tscn" id="7_e046x"]
+[ext_resource type="PackedScene" uid="uid://b4xo77yosvs1a" path="res://Itens/scenes/geladeira.tscn" id="8_0bwyg"]
+[ext_resource type="PackedScene" uid="uid://ddt6lnywyrdyx" path="res://Itens/scenes/balcao.tscn" id="8_cth1h"]
+[ext_resource type="PackedScene" uid="uid://co7yllu4toda2" path="res://Itens/scenes/chaleira.tscn" id="10_4vcml"]
 
 [sub_resource type="Environment" id="Environment_iqat7"]
 background_mode = 3
@@ -53,6 +59,28 @@ position = Vector2(176, 27)
 z_index = 1
 use_parent_material = true
 position = Vector2(311, 240)
+
+[node name="Moveis" type="Node2D" parent="Elementos" unique_id=1991353690]
+
+[node name="EnteragePlayer" parent="Elementos/Moveis" unique_id=1605428017 instance=ExtResource("5_tayns")]
+position = Vector2(180, 213)
+
+[node name="mesa" parent="Elementos/Moveis" unique_id=1505730108 instance=ExtResource("6_ryfhg")]
+position = Vector2(412, 138)
+
+[node name="Fogao" parent="Elementos/Moveis" unique_id=1510914623 instance=ExtResource("7_e046x")]
+position = Vector2(432, 267)
+
+[node name="Balcao" parent="Elementos/Moveis" unique_id=1490575044 instance=ExtResource("8_cth1h")]
+position = Vector2(528, 176)
+
+[node name="Geladeira" parent="Elementos/Moveis" unique_id=1375789181 instance=ExtResource("8_0bwyg")]
+position = Vector2(87, 250)
+
+[node name="itens" type="Node2D" parent="Elementos" unique_id=687083256]
+
+[node name="chaleira" parent="Elementos/itens" unique_id=1782349878 instance=ExtResource("10_4vcml")]
+position = Vector2(414, 256)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=316322369 node_paths=PackedStringArray("dirLuz", "Tempo")]
 environment = SubResource("Environment_iqat7")

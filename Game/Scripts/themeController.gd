@@ -15,7 +15,6 @@ func tocaMusica(_musica : AudioStream):
 	if stream == null:
 		stream = _musica
 		aumentaVolume()
-		play()
 		return
 	if stream != _musica:
 		await diminuiVolume()
@@ -30,6 +29,7 @@ func diminuiVolume():
 	tweenVolume = create_tween().bind_node(self)
 	tweenVolume.tween_method(mudaVolume, volumeAtual, 0.0, TEMPO)
 	tweenVolume.tween_callback(stop)
+	await tweenVolume.finished
 
 func aumentaVolume():
 	if stream == null: return

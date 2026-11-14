@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d2wqpg2xyoqgp"]
+
+[ext_resource type="Script" uid="uid://dbcjcocy1r2mm" path="res://Itens/Scripts/Pia.gd" id="1_wvjuj"]
+[ext_resource type="Texture2D" uid="uid://do85vds1lc8iy" path="res://Itens/Sprites/moveis/Sprite-Fogão.png" id="2_fi7cl"]
+[ext_resource type="Texture2D" uid="uid://vgg115e6bk3" path="res://Itens/Sprites/moveis/Sprite-JanelaFogão.png" id="3_hpjdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jqwh"]
+size = Vector2(80, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
+size = Vector2(64, 44)
+
+[node name="Fogao" type="CharacterBody2D" unique_id=1510914623 node_paths=PackedStringArray("Sprite", "Area")]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_wvjuj")
+Sprite = NodePath("Sprite2D")
+Area = NodePath("Area2D")
+metadata/_custom_type_script = "uid://clkkj1e082sag"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=23852854]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1519928489]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_6jqwh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1885615738]
+z_index = 3
+y_sort_enabled = true
+texture = ExtResource("2_fi7cl")
+hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1010818242]
+z_index = 4
+y_sort_enabled = true
+position = Vector2(0, 2)
+texture = ExtResource("3_hpjdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202807625]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_k0h2g")

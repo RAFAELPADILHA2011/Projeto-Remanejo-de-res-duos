@@ -82,13 +82,13 @@ gradient = SubResource("Gradient_h2w00")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Guia" type="CharacterBody2D" unique_id=1917759687 node_paths=PackedStringArray("Area", "Mensagem")]
+[node name="Guia" type="CharacterBody2D" unique_id=1917759687 node_paths=PackedStringArray("Mensagem", "Area")]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_elmc4")
-Area = NodePath("Area2D")
 Mensagem = NodePath("Area2D/Label")
 DialogoTela = ExtResource("2_a4c8f")
+Area = NodePath("Area2D")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1345599315]
 y_sort_enabled = true
@@ -117,7 +117,7 @@ position = Vector2(0, -11.5)
 shape = SubResource("CircleShape2D_b7fda")
 
 [node name="Label" type="Label" parent="Area2D" unique_id=733332482]
-modulate = Color(0.145, 0.086, 0.31, 0)
+modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)
 z_index = 3
 offset_left = -48.0
 offset_top = -40.0

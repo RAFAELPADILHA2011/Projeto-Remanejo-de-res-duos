@@ -29,6 +29,10 @@ var emTela : bool = false
 
 func _process(_delta: float):
 	if not emTela: return
+	if get_tree().paused == true:
+			Anim.play("saida")
+			await Anim.animation_finished
+			queue_free()
 	if Input.is_action_pressed("ui_accept") and Dialogo.visible_ratio < MAX_TEXTO_VISIVEL:
 		passoTexto = MIN_PASSO_TEXTO
 		return

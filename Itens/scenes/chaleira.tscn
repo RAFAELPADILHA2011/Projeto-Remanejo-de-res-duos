@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://co7yllu4toda2"]
+
+[ext_resource type="Script" uid="uid://d4ja6n4d38qx3" path="res://Itens/Scripts/CliqueParaPegar.gd" id="1_5c6t1"]
+[ext_resource type="Texture2D" uid="uid://csmftfwvfeawm" path="res://Itens/Sprites/Itens/Sprite-Chaleira.png" id="2_agjlt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
+size = Vector2(15, 15)
+
+[node name="chaleira" type="CharacterBody2D" unique_id=1782349878 node_paths=PackedStringArray("Mensagem", "Area")]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_5c6t1")
+Mensagem = NodePath("Label")
+PosYOriginal = -41.0
+PosYOEscondida = -38.0
+Area = NodePath("Area2D")
+metadata/_custom_type_script = "uid://diftjq15gaix4"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1255155179]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1552370920]
+shape = SubResource("RectangleShape2D_k0h2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201108688]
+z_index = 3
+y_sort_enabled = true
+texture = ExtResource("2_agjlt")
+
+[node name="Label" type="Label" parent="." unique_id=929659700]
+modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)
+z_index = 3
+offset_left = -42.0
+offset_top = -38.0
+offset_right = 43.0
+offset_bottom = -8.0
+theme_override_colors/font_shadow_color = Color(0.023099998, 0.024663331, 0.07, 0.7058824)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 5
+text = "Aperte o botão 
+esquerdo do mouse
+em cima"
+horizontal_alignment = 1
+vertical_alignment = 1

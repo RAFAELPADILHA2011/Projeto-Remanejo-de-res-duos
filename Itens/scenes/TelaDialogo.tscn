@@ -128,6 +128,7 @@ _data = {
 }
 
 [node name="DialogScreen" type="CanvasLayer" unique_id=773613895 node_paths=PackedStringArray("Nome", "Dialogo", "Icone", "Anim")]
+process_mode = 3
 script = ExtResource("1_8p7pj")
 Nome = NodePath("CaixaDialogo/VBoxContainer/Nome")
 Dialogo = NodePath("CaixaDialogo/VBoxContainer/Dialogo")
