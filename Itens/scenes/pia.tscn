@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dbcjcocy1r2mm" path="res://Itens/Scripts/Pia.gd" id="1_cxpib"]
 [ext_resource type="Texture2D" uid="uid://dd8p0kmf8wlgj" path="res://Itens/Sprites/moveis/Sprite-Pia.png" id="2_k6g1t"]
+[ext_resource type="Texture2D" uid="uid://cyqgwuu557ea0" path="res://Itens/Sprites/moveis/Sprite-balcaoPia.png" id="3_rrm3d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0h2g"]
 radius = 44.102154
 
 [node name="EnteragePlayer" type="CharacterBody2D" unique_id=1605428017 node_paths=PackedStringArray("Sprite", "Area")]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_cxpib")
 Sprite = NodePath("Sprite2D")
@@ -26,7 +26,13 @@ position = Vector2(16, 53)
 shape = SubResource("CircleShape2D_k0h2g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2069066354]
-z_index = 3
+z_index = 1
 y_sort_enabled = true
+position = Vector2(0, 55)
 texture = ExtResource("2_k6g1t")
 hframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=332371801]
+z_index = 2
+position = Vector2(-56.5, -20.5)
+texture = ExtResource("3_rrm3d")

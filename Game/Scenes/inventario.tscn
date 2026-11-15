@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://b2umye4fmwwu7"]
+
+[ext_resource type="Script" uid="uid://cumlb3dj4lsu" path="res://Game/Scripts/inventario.gd" id="1_m5iqr"]
+[ext_resource type="Texture2D" uid="uid://4kshtu0v7euu" path="res://Game/Sprites/Sprite-Inventario.png" id="2_7buii"]
+[ext_resource type="Script" uid="uid://bm11njeiq2yqs" path="res://Game/Scripts/MudaEscalaMouse.gd" id="3_3hcre"]
+
+[node name="Inventario" type="CanvasLayer" unique_id=1455674508]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=214895867]
+position = Vector2(130, 331)
+texture = ExtResource("2_7buii")
+script = ExtResource("1_m5iqr")
+
+[node name="TextureButton" type="TextureButton" parent="Sprite2D" unique_id=588014970]
+offset_left = -109.0
+offset_top = -7.0
+offset_right = -85.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11.5, 10.5)
+stretch_mode = 3
+script = ExtResource("3_3hcre")
+
+[node name="TextureButton2" type="TextureButton" parent="Sprite2D" unique_id=1248724670]
+offset_left = -81.0
+offset_top = -7.0
+offset_right = -57.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11.5, 10.5)
+stretch_mode = 3
+script = ExtResource("3_3hcre")
+
+[node name="TextureButton3" type="TextureButton" parent="Sprite2D" unique_id=824012663]
+offset_left = -53.0
+offset_top = -7.0
+offset_right = -29.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11.5, 10.5)
+stretch_mode = 3
+script = ExtResource("3_3hcre")
+
+[node name="TextureButton4" type="TextureButton" parent="Sprite2D" unique_id=600880893]
+offset_left = -25.0
+offset_top = -7.0
+offset_right = -1.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11.5, 10.5)
+stretch_mode = 3
+script = ExtResource("3_3hcre")
+
+[node name="TextureButton5" type="TextureButton" parent="Sprite2D" unique_id=439641426]
+offset_left = 3.0
+offset_top = -7.0
+offset_right = 27.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11.5, 10.5)
+stretch_mode = 3
+script = ExtResource("3_3hcre")
+
+[node name="TextureButton6" type="TextureButton" parent="Sprite2D" unique_id=546804295]
+offset_left = 31.0
+offset_top = -7.0
+offset_right = 54.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11.5, 10.5)
+stretch_mode = 3
+script = ExtResource("3_3hcre")
+
+[node name="TextureButton7" type="TextureButton" parent="Sprite2D" unique_id=1432798866]
+offset_left = 58.0
+offset_top = -7.0
+offset_right = 81.0
+offset_bottom = 15.0
+pivot_offset = Vector2(11.5, 10.5)
+stretch_mode = 3
+script = ExtResource("3_3hcre")
+
+[node name="Label" type="Label" parent="." unique_id=173307695]
+offset_left = 25.0
+offset_top = 313.0
+offset_right = 95.0
+offset_bottom = 319.0
+theme_override_colors/font_color = Color(0.8509804, 0.654902, 0.49411765, 1)
+theme_override_font_sizes/font_size = 6
+text = "Inventário"

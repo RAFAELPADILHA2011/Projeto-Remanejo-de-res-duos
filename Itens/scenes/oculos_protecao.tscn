@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b74p78nn435en"]
+
+[ext_resource type="Script" uid="uid://d4ja6n4d38qx3" path="res://Itens/Scripts/CliqueParaPegar.gd" id="1_u56w2"]
+[ext_resource type="Texture2D" uid="uid://bbbv0ufddudnp" path="res://Itens/Sprites/Itens/Sprite-oculosProtecao.png" id="2_i4vct"]
+[ext_resource type="Script" uid="uid://ejj2pv3364aw" path="res://Itens/Scripts/Functions/OculosFunction.gd" id="3_i4vct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
+size = Vector2(18, 18)
+
+[node name="OculosProtecao" type="Area2D" unique_id=1255155179 node_paths=PackedStringArray("funcao", "Mensagem")]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_u56w2")
+funcao = NodePath("OculosFuncao")
+Mensagem = NodePath("Label")
+PosYOriginal = -19.0
+PosYOEscondida = -15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1552370920]
+shape = SubResource("RectangleShape2D_k0h2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201108688]
+z_index = 4
+texture = ExtResource("2_i4vct")
+
+[node name="Label" type="Label" parent="." unique_id=929659700]
+modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)
+z_index = 3
+offset_left = -50.0
+offset_top = -19.0
+offset_right = 50.0
+offset_bottom = -14.0
+theme_override_colors/font_shadow_color = Color(0.023099998, 0.024663331, 0.07, 0.7058824)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 5
+text = ":Óculos de Protecao:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OculosFuncao" type="Node" parent="." unique_id=577465264]
+script = ExtResource("3_i4vct")
+metadata/_custom_type_script = "uid://ejj2pv3364aw"

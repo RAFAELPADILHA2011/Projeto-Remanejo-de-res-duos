@@ -96,6 +96,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=813289457 node_paths=PackedStringArray("Anim", "Sprite", "SomAndar")]
+z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_82i17")
 Anim = NodePath("Sprite2D/AnimationPlayer")

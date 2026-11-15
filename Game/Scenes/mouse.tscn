@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dmfo7lnn3smcy"]
+
+[ext_resource type="Script" uid="uid://dqs3qjyqx8kx6" path="res://Game/Scripts/mouse.gd" id="2_lobis"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3oqa6"]
+load_path = "res://.godot/imported/Sprite-Mouse.png-b6c1f54a9bf8a8bfdddebf97e24c1225.ctex"
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1898907676]
+layer = 3
+
+[node name="Mouse" type="Sprite2D" parent="." unique_id=637218483]
+process_mode = 3
+texture = SubResource("CompressedTexture2D_3oqa6")
+hframes = 2
+frame = 1
+script = ExtResource("2_lobis")

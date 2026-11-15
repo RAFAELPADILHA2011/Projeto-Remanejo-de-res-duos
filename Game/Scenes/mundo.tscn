@@ -11,10 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://b4xo77yosvs1a" path="res://Itens/scenes/geladeira.tscn" id="8_0bwyg"]
 [ext_resource type="PackedScene" uid="uid://ddt6lnywyrdyx" path="res://Itens/scenes/balcao.tscn" id="8_cth1h"]
 [ext_resource type="PackedScene" uid="uid://co7yllu4toda2" path="res://Itens/scenes/chaleira.tscn" id="10_4vcml"]
+[ext_resource type="PackedScene" uid="uid://bhug2oxmidure" path="res://Itens/scenes/ovos.tscn" id="11_e7vsj"]
+[ext_resource type="Texture2D" uid="uid://dveq11g7vugu8" path="res://Itens/Sprites/Itens/Sprite-GarrafaOleo.png" id="11_ve5ur"]
+[ext_resource type="PackedScene" uid="uid://c437suj8lyl15" path="res://Itens/scenes/frigideira.tscn" id="12_hu0gs"]
+[ext_resource type="PackedScene" uid="uid://dox1u3a2vpi7r" path="res://Itens/scenes/copo.tscn" id="14_1muu3"]
+[ext_resource type="PackedScene" uid="uid://e4jeqkpy1fc0" path="res://Itens/scenes/soda.tscn" id="15_yc8iv"]
+[ext_resource type="PackedScene" uid="uid://b26fkj4j7fd6r" path="res://Itens/scenes/luvas.tscn" id="16_ftuib"]
+[ext_resource type="PackedScene" uid="uid://b74p78nn435en" path="res://Itens/scenes/oculos_protecao.tscn" id="17_im2oi"]
+[ext_resource type="PackedScene" uid="uid://b2umye4fmwwu7" path="res://Game/Scenes/inventario.tscn" id="19_im2oi"]
 
 [sub_resource type="Environment" id="Environment_iqat7"]
 background_mode = 3
-background_canvas_max_layer = 1
 tonemap_mode = 1
 tonemap_exposure = 0.5
 glow_enabled = true
@@ -47,6 +54,7 @@ tile_map_data = PackedByteArray("AAABAAgAAQAAAAEAAAABAAEAAQAAAAEAAAABAAIAAQAFAAE
 tile_set = ExtResource("1_dgtkw")
 
 [node name="Elementos" type="Node2D" parent="." unique_id=2028991712]
+y_sort_enabled = true
 
 [node name="Guia" parent="Elementos" unique_id=1917759687 instance=ExtResource("2_tayns")]
 z_index = 0
@@ -56,11 +64,11 @@ position = Vector2(330, 58)
 position = Vector2(176, 27)
 
 [node name="Player" parent="Elementos" unique_id=813289457 instance=ExtResource("4_e046x")]
-z_index = 1
 use_parent_material = true
 position = Vector2(311, 240)
 
 [node name="Moveis" type="Node2D" parent="Elementos" unique_id=1991353690]
+y_sort_enabled = true
 
 [node name="EnteragePlayer" parent="Elementos/Moveis" unique_id=1605428017 instance=ExtResource("5_tayns")]
 position = Vector2(180, 213)
@@ -80,7 +88,37 @@ position = Vector2(87, 250)
 [node name="itens" type="Node2D" parent="Elementos" unique_id=687083256]
 
 [node name="chaleira" parent="Elementos/itens" unique_id=1782349878 instance=ExtResource("10_4vcml")]
-position = Vector2(414, 256)
+position = Vector2(415, 258)
+
+[node name="Ovos" parent="Elementos/itens" unique_id=115456944 instance=ExtResource("11_e7vsj")]
+position = Vector2(528, 160)
+
+[node name="Oleo" type="Sprite2D" parent="Elementos/itens" unique_id=12418232]
+z_index = 3
+y_sort_enabled = true
+position = Vector2(526, 205)
+texture = ExtResource("11_ve5ur")
+
+[node name="Oleo2" type="Sprite2D" parent="Elementos/itens" unique_id=1986069169]
+z_index = 3
+y_sort_enabled = true
+position = Vector2(535, 214)
+texture = ExtResource("11_ve5ur")
+
+[node name="Frigideira" parent="Elementos/itens" unique_id=1255155179 instance=ExtResource("12_hu0gs")]
+position = Vector2(447, 258)
+
+[node name="Copo" parent="Elementos/itens" unique_id=843866831 instance=ExtResource("14_1muu3")]
+position = Vector2(383, 148)
+
+[node name="Soda" parent="Elementos/itens" unique_id=681984260 instance=ExtResource("15_yc8iv")]
+position = Vector2(133, 270)
+
+[node name="Luvas" parent="Elementos/itens" unique_id=2010416791 instance=ExtResource("16_ftuib")]
+position = Vector2(165, 267)
+
+[node name="OculosProtecao" parent="Elementos/itens" unique_id=1966271430 instance=ExtResource("17_im2oi")]
+position = Vector2(86, 226)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=316322369 node_paths=PackedStringArray("dirLuz", "Tempo")]
 environment = SubResource("Environment_iqat7")
@@ -94,3 +132,11 @@ Tempo = NodePath("CanvasModulate")
 rotation = -1.2391838
 color = Color(0.6077073, 0.6077073, 0.6077073, 1)
 shadow_enabled = true
+
+[node name="Inventario" parent="." unique_id=1455674508 instance=ExtResource("19_im2oi")]
+
+[node name="Sprite2D" parent="Inventario" index="0" unique_id=214895867 node_paths=PackedStringArray("player", "guardadorItems")]
+player = NodePath("../../Elementos/Player")
+guardadorItems = NodePath("../../Elementos/itens")
+
+[editable path="Inventario"]

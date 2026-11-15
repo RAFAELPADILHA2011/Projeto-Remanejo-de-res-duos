@@ -91,16 +91,17 @@ _data = {
 }
 
 [node name="Transicao" type="CanvasLayer" unique_id=22563931 node_paths=PackedStringArray("Anim")]
-layer = 2
+layer = 3
 visible = false
 script = ExtResource("1_es2bm")
 Anim = NodePath("AnimationPlayer")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1097073474]
+z_index = 3
 offset_left = 322.0
 offset_top = 678.0
-offset_right = 1222.0
-offset_bottom = 1428.0
+offset_right = 1221.9999
+offset_bottom = 1428.0004
 rotation = -0.7853982
 color = Color(0, 0, 0, 1)
 

@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://l86nhe2t83rr"]
 
 [ext_resource type="Script" uid="uid://cfhsed1m1qc7x" path="res://Game/Scripts/menu.gd" id="1_gt5kl"]
-[ext_resource type="Texture2D" uid="uid://baq7ledb8tdel" path="res://Game/Sprites/Sprite-fundo.png" id="2_7vph8"]
+[ext_resource type="Texture2D" uid="uid://h4flvec2vooi" path="res://Game/Sprites/Sprite-fundo.png" id="2_7vph8"]
 [ext_resource type="Shader" uid="uid://b0lb78e3eprbr" path="res://Game/shaders/menuBackground.gdshader" id="2_nonig"]
 [ext_resource type="Texture2D" uid="uid://bpied7weq2jqv" path="res://Game/Sprites/Sprite-ParticlasBolhas.png" id="3_43og2"]
-[ext_resource type="Texture2D" uid="uid://cfhch5em0avjm" path="res://Game/Sprites/Sprite-BarTitulo.png" id="4_dqrve"]
+[ext_resource type="Texture2D" uid="uid://b04435ne8wxe2" path="res://Game/Sprites/Sprite-BarTitulo.png" id="4_dqrve"]
 [ext_resource type="Theme" uid="uid://cnkctxuno7f4y" path="res://DefaulThemeBtn.tres" id="6_5or0g"]
 [ext_resource type="Texture2D" uid="uid://ciwt8jtevwju6" path="res://Game/Sprites/Sprite-Titulo.png" id="6_7o77k"]
 [ext_resource type="Texture2D" uid="uid://xtfmr28dm5qb" path="res://Game/Sprites/Sprite-PlayerMenu.png" id="6_soopo"]
 [ext_resource type="AudioStream" uid="uid://br2fy65ro1d3f" path="res://Game/Themes/Theme-Menu.ogg" id="7_jn24y"]
-[ext_resource type="Texture2D" uid="uid://cs7g54a4ea7au" path="res://Game/Sprites/Sprite-ComeçarBtn.png" id="7_yg6kw"]
+[ext_resource type="Texture2D" uid="uid://fsyywfjvdl4y" path="res://Game/Sprites/Sprite-ComeçarBtn.png" id="7_yg6kw"]
 [ext_resource type="Texture2D" uid="uid://dqnsvcf86mfw7" path="res://Game/Sprites/Sprite-OpcoesBtn.png" id="8_71f56"]
 [ext_resource type="Script" uid="uid://djueck0aaxnvj" path="res://Game/Scripts/EfeitoBotao.gd" id="9_e0lca"]
 [ext_resource type="Texture2D" uid="uid://b0ynkex66xbgv" path="res://Game/Sprites/Sprite-Sair.png" id="10_soopo"]
@@ -438,6 +438,7 @@ adjustment_contrast = 1.1
 adjustment_saturation = 1.1
 
 [node name="Menu" type="CanvasLayer" unique_id=1855890612 node_paths=PackedStringArray("Anim", "BrilhoInferior", "Titulo", "ContainerBotoes", "PlayerMenu", "Musica", "Comecar", "Opcoes", "Sair")]
+layer = 2
 script = ExtResource("1_gt5kl")
 Anim = NodePath("AnimationPlayer")
 BrilhoInferior = NodePath("Elementos/LuzInferior")

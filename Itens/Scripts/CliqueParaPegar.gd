@@ -1,4 +1,13 @@
-extends EnterageMouse
+extends Area2D
+class_name InterageMouse
+
+@export_category("Item Caracteriscas")
+
+@export var corte : Rect2 = Rect2()
+
+@export var funcao : FunctionItem = null
+
+@export_category("Item Efeito")
 
 @export var Mensagem : Label = null
 
@@ -16,10 +25,26 @@ var tweenPrecionar : Tween = null
 
 var necessitaExibirTexto : bool = true
 
-func _on_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
-	if _event is InputEventMouseButton and _event.pressed:
-		if _event.event == MOUSE_BUTTON_LEFT:
-			queue_free()
+func _ready() -> void:
+	mouse_entered.connect(mouseColidindo)
+	mouse_exited.connect(mouseNaoColidindo)
+
+func _input_event(_viewport: Viewport, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if Global.inventario.size() == Global.MAX_ITEMS: return 
+		if not verificacao(): return
+		Global.itemPegado.emit($Sprite2D.texture, extraindoMeuCaminho(), corte, funcao)
+		queue_free()
+
+func verificacao() -> bool:
+	return true
+
+func extraindoMeuCaminho() -> String:
+	var caminho : String = scene_file_path
+	if caminho.is_empty():
+		push_error("caminho vazio")
+		return ""
+	return caminho
 
 func mouseColidindo():
 	if not necessitaExibirTexto: return
@@ -27,6 +52,7 @@ func mouseColidindo():
 	tweenPrecionar = create_tween().bind_node(self)
 	tweenPrecionar.tween_property(Mensagem, "position:y", PosYOriginal, TEMPO)
 	tweenPrecionar.tween_property(Mensagem, "modulate", COR_ORIGINAL, TEMPO)
+	await tweenPrecionar.finished
 
 func mouseNaoColidindo():
 	if tweenPrecionar: tweenPrecionar.kill()

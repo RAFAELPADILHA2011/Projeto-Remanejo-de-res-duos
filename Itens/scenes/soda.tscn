@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://e4jeqkpy1fc0"]
+
+[ext_resource type="Script" uid="uid://cwqndkkwllnan" path="res://Itens/Scripts/SodaCondicao.gd" id="1_j0tvv"]
+[ext_resource type="Texture2D" uid="uid://r16jtmpn6umr" path="res://Itens/Sprites/Itens/Sprite-Soda.png" id="2_gsvf1"]
+[ext_resource type="Script" uid="uid://btwhqk11eiyl0" path="res://Itens/Scripts/Functions/SodaFunction.gd" id="3_gsvf1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
+size = Vector2(18, 18)
+
+[node name="Soda" type="Area2D" unique_id=1255155179 node_paths=PackedStringArray("Aviso", "funcao", "Mensagem")]
+z_index = 2
+y_sort_enabled = true
+script = ExtResource("1_j0tvv")
+Aviso = NodePath("Label")
+funcao = NodePath("SodaFuncao")
+Mensagem = NodePath("Label")
+PosYOriginal = -25.0
+PosYOEscondida = -20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1552370920]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_k0h2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201108688]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("2_gsvf1")
+
+[node name="Label" type="Label" parent="." unique_id=929659700]
+modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)
+z_index = 4
+offset_left = -62.0
+offset_top = -23.0
+offset_right = 63.0
+offset_bottom = -10.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.023099998, 0.024663331, 0.07, 0.7058824)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 5
+text = ":Soda Cáustica:
+Precisa de Luvas e Óculos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SodaFuncao" type="Node" parent="." unique_id=215290881]
+script = ExtResource("3_gsvf1")
+metadata/_custom_type_script = "uid://btwhqk11eiyl0"
