@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://e4jeqkpy1fc0" path="res://Itens/scenes/soda.tscn" id="15_yc8iv"]
 [ext_resource type="PackedScene" uid="uid://b26fkj4j7fd6r" path="res://Itens/scenes/luvas.tscn" id="16_ftuib"]
 [ext_resource type="PackedScene" uid="uid://b74p78nn435en" path="res://Itens/scenes/oculos_protecao.tscn" id="17_im2oi"]
+[ext_resource type="PackedScene" uid="uid://i7wuk43it0xs" path="res://Itens/scenes/saco_lixo.tscn" id="18_invyn"]
 [ext_resource type="PackedScene" uid="uid://b2umye4fmwwu7" path="res://Game/Scenes/inventario.tscn" id="19_im2oi"]
 
 [sub_resource type="Environment" id="Environment_iqat7"]
@@ -119,6 +120,15 @@ position = Vector2(165, 267)
 
 [node name="OculosProtecao" parent="Elementos/itens" unique_id=1966271430 instance=ExtResource("17_im2oi")]
 position = Vector2(86, 226)
+
+[node name="Copo2" parent="Elementos/itens" unique_id=1602229761 instance=ExtResource("14_1muu3")]
+position = Vector2(116, 157)
+
+[node name="Copo3" parent="Elementos/itens" unique_id=1996455545 instance=ExtResource("14_1muu3")]
+position = Vector2(126, 186)
+
+[node name="SacoLixo" parent="Elementos/itens" unique_id=862280770 instance=ExtResource("18_invyn")]
+position = Vector2(118, 258)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=316322369 node_paths=PackedStringArray("dirLuz", "Tempo")]
 environment = SubResource("Environment_iqat7")

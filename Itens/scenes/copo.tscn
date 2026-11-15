@@ -21,7 +21,9 @@ shape = SubResource("RectangleShape2D_k0h2g")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201108688]
 z_index = 2
 y_sort_enabled = true
+position = Vector2(0, -1)
 texture = ExtResource("2_f611w")
+hframes = 6
 
 [node name="Label" type="Label" parent="." unique_id=929659700]
 modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)

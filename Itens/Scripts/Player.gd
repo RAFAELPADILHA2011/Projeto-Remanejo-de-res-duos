@@ -8,6 +8,8 @@ class_name Player
 
 @export var SomAndar : EfeitoSom
 
+@export var BalaoReceita : CharacterBody2D = null
+
 const VEL : float = 300
 
 const ACEL : float = 0.3
@@ -23,6 +25,13 @@ var dir : Vector2 = Vector2.ZERO
 var dt : float = 0.0
 
 var tempoPasso : float = 0.0
+
+func _ready() -> void:
+	if Global.PROGRESSAO == 0:
+		await get_tree().create_timer(0.2).timeout
+		BalaoReceita.entrar(BalaoReceita.RECEITAS["ovo_frito"])
+		await get_tree().create_timer(0.4).timeout
+		BalaoReceita.sair()
 
 func _process(_delta : float):
 	move(_delta)

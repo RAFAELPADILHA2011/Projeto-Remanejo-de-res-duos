@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://xeu6v8w0uc2k"]
+
+[ext_resource type="Script" uid="uid://d4ja6n4d38qx3" path="res://Itens/Scripts/CliqueParaPegar.gd" id="1_6ifgx"]
+[ext_resource type="Texture2D" uid="uid://b30743hjl7qvj" path="res://Itens/Sprites/Itens/Sprite-pote.png" id="2_0kxub"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h30r0"]
+
+[node name="Pote" type="Area2D" unique_id=1255155179 node_paths=PackedStringArray("Mensagem")]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_6ifgx")
+corte = Rect2(0, 0, 20, 0)
+Mensagem = NodePath("Label")
+PosYOriginal = -17.0
+PosYOEscondida = -13.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1552370920]
+shape = SubResource("RectangleShape2D_h30r0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201108688]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("2_0kxub")
+hframes = 3
+
+[node name="Label" type="Label" parent="." unique_id=929659700]
+modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)
+z_index = 3
+offset_left = -15.0
+offset_top = -17.0
+offset_right = 15.0
+offset_bottom = -12.0
+theme_override_colors/font_shadow_color = Color(0.023099998, 0.024663331, 0.07, 0.7058824)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 5
+text = ":Pote:"
+horizontal_alignment = 1
+vertical_alignment = 1

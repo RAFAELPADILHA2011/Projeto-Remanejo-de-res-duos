@@ -4,6 +4,8 @@ signal itemPegado(_image : Texture2D, _cena : StringName, _corte : Rect2, _funca
 
 const MAX_ITEMS : int = 7
 
+var PROGRESSAO : int = 0
+
 var inventario : Array[Dictionary] = []
 
 var InventarioItems : Sprite2D = null

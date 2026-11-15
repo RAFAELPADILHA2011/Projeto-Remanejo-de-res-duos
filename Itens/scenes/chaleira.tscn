@@ -10,6 +10,7 @@ size = Vector2(15, 15)
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_5c6t1")
+corte = Rect2(0, 0, 15, 0)
 Mensagem = NodePath("Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1552370920]
@@ -19,6 +20,7 @@ shape = SubResource("RectangleShape2D_k0h2g")
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("2_agjlt")
+hframes = 3
 
 [node name="Label" type="Label" parent="." unique_id=929659700]
 modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)
