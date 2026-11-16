@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://4lb4owoi5aij"]
 
-[ext_resource type="Script" uid="uid://clkkj1e082sag" path="res://Itens/Scripts/interageComPlayer.gd" id="1_nn7dc"]
+[ext_resource type="Script" uid="uid://c4tm2tt832hu3" path="res://Itens/Scripts/mesa.gd" id="1_nn7dc"]
 [ext_resource type="Texture2D" uid="uid://btj10tm37hb2u" path="res://Itens/Sprites/moveis/Sprite-Mesa.png" id="2_4ocww"]
+[ext_resource type="PackedScene" uid="uid://baekfucts48sa" path="res://Itens/scenes/ovos_fritos.tscn" id="2_q8vbr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jqwh"]
 radius = 42.0
@@ -11,11 +12,14 @@ height = 126.0
 radius = 55.0
 height = 144.0
 
-[node name="mesa" type="CharacterBody2D" unique_id=1505730108 node_paths=PackedStringArray("Area")]
+[node name="mesa" type="CharacterBody2D" unique_id=598407833 node_paths=PackedStringArray("Pratos", "Sprite", "Area")]
 y_sort_enabled = true
 script = ExtResource("1_nn7dc")
+OvosFritos = ExtResource("2_q8vbr")
+Pratos = [NodePath("Pratos/Prato1"), NodePath("Pratos/Prato2"), NodePath("Pratos/Prato3"), NodePath("Pratos/Prato4")]
+Sprite = NodePath("Sprite2D")
 Area = NodePath("Area2D")
-metadata/_custom_type_script = "uid://clkkj1e082sag"
+metadata/_custom_type_script = "uid://dbcjcocy1r2mm"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1652873637]
 position = Vector2(0, -5)
@@ -33,6 +37,7 @@ shape = SubResource("CapsuleShape2D_iismu")
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("2_4ocww")
+hframes = 2
 
 [node name="Pratos" type="Node2D" parent="." unique_id=559413033]
 position = Vector2(-37, -10)
@@ -40,7 +45,10 @@ position = Vector2(-37, -10)
 [node name="Prato1" type="Marker2D" parent="Pratos" unique_id=1292706766]
 
 [node name="Prato2" type="Marker2D" parent="Pratos" unique_id=245836264]
+position = Vector2(42, 25)
 
 [node name="Prato3" type="Marker2D" parent="Pratos" unique_id=380888534]
+position = Vector2(25, -25)
 
 [node name="Prato4" type="Marker2D" parent="Pratos" unique_id=210686190]
+position = Vector2(70, 1)

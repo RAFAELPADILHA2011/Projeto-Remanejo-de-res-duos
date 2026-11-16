@@ -24,6 +24,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [8]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:possoMover")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_7viyo"]
 resource_name = "baixo"
@@ -59,6 +71,34 @@ tracks/0/keys = {
 "values": [4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_3l4bn"]
+resource_name = "comendo"
+length = 0.39999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:possoMover")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15]
+}
+
 [sub_resource type="Animation" id="Animation_npb2y"]
 resource_name = "lado"
 length = 0.8
@@ -81,6 +121,7 @@ _data = {
 &"RESET": SubResource("Animation_ibx38"),
 &"baixo": SubResource("Animation_7viyo"),
 &"cima": SubResource("Animation_3aqtu"),
+&"comendo": SubResource("Animation_3l4bn"),
 &"lado": SubResource("Animation_npb2y")
 }
 
@@ -88,13 +129,14 @@ _data = {
 size = Vector2(32, 14)
 
 [sub_resource type="Gradient" id="Gradient_h2w00"]
-offsets = PackedFloat32Array(0.26099536, 0.6221065)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.39072084, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.81, 0.81, 0.81, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ibx38"]
 gradient = SubResource("Gradient_h2w00")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=813289457 node_paths=PackedStringArray("Anim", "Sprite", "SomAndar", "BalaoReceita")]
 z_index = 1
@@ -122,7 +164,7 @@ y_sort_enabled = true
 use_parent_material = true
 texture = ExtResource("1_wydmf")
 hframes = 4
-vframes = 3
+vframes = 4
 frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1611566539]

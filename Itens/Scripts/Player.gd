@@ -10,6 +10,8 @@ class_name Player
 
 @export var BalaoReceita : CharacterBody2D = null
 
+@export var possoMover : bool = true
+
 const VEL : float = 300
 
 const ACEL : float = 0.3
@@ -28,16 +30,18 @@ var tempoPasso : float = 0.0
 
 func _ready() -> void:
 	if Global.PROGRESSAO == 0:
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(5).timeout
 		BalaoReceita.entrar(BalaoReceita.RECEITAS["ovo_frito"])
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(6).timeout
 		BalaoReceita.sair()
+		Global.PROGRESSAO = 1
 
 func _process(_delta : float):
 	move(_delta)
 	move_and_slide()
 
 func move(_delta : float):
+	if not possoMover: return
 
 	dt = _delta * 60
 

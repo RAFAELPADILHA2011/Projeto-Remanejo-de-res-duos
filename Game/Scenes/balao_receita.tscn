@@ -132,6 +132,7 @@ _data = {
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=247580900 node_paths=PackedStringArray("Receitas", "Anim")]
 visible = false
+z_index = 5
 script = ExtResource("1_j3ilw")
 Receitas = NodePath("Balao/Receita")
 Anim = NodePath("AnimationPlayer")

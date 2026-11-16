@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://da2cdtiotiuhw" path="res://Itens/Sprites/Sprite-GuiaImagem.png" id="2_b64pr"]
 [ext_resource type="FontFile" uid="uid://ca814pk7hxdp2" path="res://Game/fonts/PressStart2P-Regular.ttf" id="3_b64pr"]
 [ext_resource type="AudioStream" uid="uid://bkqpoo2itbbt8" path="res://Itens/Sounds/SFX-InitializeDialog.wav" id="5_46cv0"]
+[ext_resource type="Texture2D" uid="uid://cywl7s1jmfa7f" path="res://Itens/Sprites/Sprite-BotoesDialogo.png" id="5_fmpxv"]
 [ext_resource type="Script" uid="uid://db4eoxbfhk32c" path="res://Itens/Scripts/SoundEffect.gd" id="6_fmpxv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d2l4b"]
@@ -12,6 +13,30 @@ font_size = 13
 shadow_size = 7
 shadow_color = Color(0.06976665, 0.019599998, 0.14, 1)
 shadow_offset = Vector2(2, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0h2g"]
+atlas = ExtResource("5_fmpxv")
+region = Rect2(0, 0, 79, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jqwh"]
+atlas = ExtResource("5_fmpxv")
+region = Rect2(0, 50, 79, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iismu"]
+atlas = ExtResource("5_fmpxv")
+region = Rect2(0, 25, 79, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00eda"]
+atlas = ExtResource("5_fmpxv")
+region = Rect2(79, 0, 79, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abf0k"]
+atlas = ExtResource("5_fmpxv")
+region = Rect2(79, 50, 79, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ckh1"]
+atlas = ExtResource("5_fmpxv")
+region = Rect2(79, 25, 79, 25)
 
 [sub_resource type="Animation" id="Animation_b64pr"]
 length = 0.001
@@ -127,13 +152,16 @@ _data = {
 &"saida": SubResource("Animation_d023b")
 }
 
-[node name="DialogScreen" type="CanvasLayer" unique_id=773613895 node_paths=PackedStringArray("Nome", "Dialogo", "Icone", "Anim")]
+[node name="DialogScreen" type="CanvasLayer" unique_id=773613895 node_paths=PackedStringArray("Nome", "Dialogo", "Icone", "Anim", "Pular", "Sair")]
 process_mode = 3
+layer = 2
 script = ExtResource("1_8p7pj")
 Nome = NodePath("CaixaDialogo/VBoxContainer/Nome")
 Dialogo = NodePath("CaixaDialogo/VBoxContainer/Dialogo")
 Icone = NodePath("CaixaDialogo/Icone")
 Anim = NodePath("AnimationPlayer")
+Pular = NodePath("CaixaDialogo/Pular")
+Sair = NodePath("CaixaDialogo/Sair")
 
 [node name="CaixaDialogo" type="Sprite2D" parent="." unique_id=1166195450]
 modulate = Color(1, 1, 1, 0)
@@ -170,6 +198,26 @@ text = "Olá! serei o responsável que lhe ensinará a reaproveitar essas garraf
 (Precione 'Enter para continuar')"
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="Pular" type="TextureButton" parent="CaixaDialogo" unique_id=1930691753]
+z_index = 2
+offset_left = 96.0
+offset_top = 30.0
+offset_right = 175.0
+offset_bottom = 55.0
+texture_normal = SubResource("AtlasTexture_k0h2g")
+texture_pressed = SubResource("AtlasTexture_6jqwh")
+texture_hover = SubResource("AtlasTexture_iismu")
+
+[node name="Sair" type="TextureButton" parent="CaixaDialogo" unique_id=674198686]
+z_index = 2
+offset_left = 184.0
+offset_top = 30.0
+offset_right = 263.0
+offset_bottom = 55.0
+texture_normal = SubResource("AtlasTexture_00eda")
+texture_pressed = SubResource("AtlasTexture_abf0k")
+texture_hover = SubResource("AtlasTexture_2ckh1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=363158574]
 libraries/ = SubResource("AnimationLibrary_46cv0")

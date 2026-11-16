@@ -21,27 +21,28 @@ var tweenPrecionar : Tween = null
 var possoComecarDialogo : bool = false
 
 func _process(_delta: float):
-    if Input.is_physical_key_pressed(KEY_E) and possoComecarDialogo:
-        possoComecarDialogo = false
-        dialogo = DialogoTela.instantiate()
-        add_child(dialogo)
-        dialogo.dados = Dialogos.DIALOGO1
-        dialogo.entrandoEmTela()
+	if Input.is_physical_key_pressed(KEY_E) and possoComecarDialogo and not dialogo:
+		possoComecarDialogo = false
+		dialogo = DialogoTela.instantiate()
+		add_child(dialogo)
+		dialogo.dados = Dialogos.escolhaDialogo(Global.PROGRESSAO)
+		dialogo.entrandoEmTela()
 
 func playerColidindo(_area : Area2D):
-    verificacao(_area)
-    if tweenPrecionar: tweenPrecionar.kill()
-    tweenPrecionar = create_tween().bind_node(self)
-    tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ORIGINAL, TEMPO)
-    tweenPrecionar.tween_property(Mensagem, "modulate", COR_ORIGINAL, TEMPO)
-    await tweenPrecionar.finished
-    possoComecarDialogo = true
+	verificacao(_area)
+	if not jogador: return
+	if tweenPrecionar: tweenPrecionar.kill()
+	tweenPrecionar = create_tween().bind_node(self)
+	tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ORIGINAL, TEMPO)
+	tweenPrecionar.tween_property(Mensagem, "modulate", COR_ORIGINAL, TEMPO)
+	await tweenPrecionar.finished
+	possoComecarDialogo = true
 
 func playerNaoColidindo(_area : Area2D):
-    verificacao(_area) 
-    if tweenPrecionar: tweenPrecionar.kill()
-    tweenPrecionar = create_tween().bind_node(self)
-    tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ESCONDIDO, TEMPO)
-    tweenPrecionar.tween_property(Mensagem, "modulate", COR_ESCONDIDA, TEMPO)
-    await tweenPrecionar.finished
-    possoComecarDialogo = false
+	verificacao(_area) 
+	if tweenPrecionar: tweenPrecionar.kill()
+	tweenPrecionar = create_tween().bind_node(self)
+	tweenPrecionar.tween_property(Mensagem, "position:y", POS_Y_ESCONDIDO, TEMPO)
+	tweenPrecionar.tween_property(Mensagem, "modulate", COR_ESCONDIDA, TEMPO)
+	await tweenPrecionar.finished
+	possoComecarDialogo = false

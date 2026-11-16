@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
 
 [node name="SacoLixo" type="Area2D" unique_id=1255155179 node_paths=PackedStringArray("Mensagem")]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 script = ExtResource("1_xdsbw")
 Mensagem = NodePath("Label")

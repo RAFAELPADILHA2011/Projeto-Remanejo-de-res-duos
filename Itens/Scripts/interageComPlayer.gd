@@ -6,15 +6,15 @@ class_name EnteragePlayer
 var jogador : Player = null
 
 func _ready() -> void:
-    Area.area_entered.connect(playerColidindo)
-    Area.area_exited.connect(playerNaoColidindo)
+	Area.area_entered.connect(playerColidindo)
+	Area.area_exited.connect(playerNaoColidindo)
 
 func playerColidindo(_area : Area2D):
-    pass
+	pass
 
 func playerNaoColidindo(_area : Area2D):
-    pass
+	pass
 
 func verificacao(_area : Area2D):
-    if not (_area.get_parent() is Player): return
-    jogador = _area.get_parent()
+	if not (_area.get_parent() is Player): return
+	jogador = _area.get_parent()

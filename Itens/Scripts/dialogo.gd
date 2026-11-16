@@ -11,6 +11,10 @@ class_name TelaDialogo
 
 @export var Anim : AnimationPlayer = null
 
+@export var Pular : TextureButton = null
+
+@export var Sair : TextureButton = null
+
 const MAX_TEXTO_VISIVEL : float = 1
 
 const QTD_CARACTERE : int = 1
@@ -27,12 +31,13 @@ var dados : Dictionary = {}
 
 var emTela : bool = false
 
+func _ready() -> void:
+	Pular.button_down.connect(pulaFala)
+	Sair.button_down.connect(saindoDeTela)
+
 func _process(_delta: float):
 	if not emTela: return
-	if get_tree().paused == true:
-			Anim.play("saida")
-			await Anim.animation_finished
-			queue_free()
+	if get_tree().paused == true: saindoDeTela()
 	if Input.is_action_pressed("ui_accept") and Dialogo.visible_ratio < MAX_TEXTO_VISIVEL:
 		passoTexto = MIN_PASSO_TEXTO
 		return
@@ -41,18 +46,29 @@ func _process(_delta: float):
 
 	if Input.is_action_just_pressed("ui_accept"):
 		if (id + 1) == dados.size():
-			Anim.play("saida")
-			await Anim.animation_finished
-			queue_free()
+			saindoDeTela()
 			return
 		id += 1
 		inicializandoDialogo()
+
+func pulaFala():
+	if (id + 1) == dados.size():
+		saindoDeTela()
+		return
+	id += 1
+	inicializandoDialogo()
 
 func entrandoEmTela():
 	Anim.play("entrada")
 	await Anim.animation_finished
 	inicializandoDialogo()
 	emTela = true
+
+func saindoDeTela():
+	emTela = false
+	Anim.play("saida")
+	await Anim.animation_finished
+	queue_free()
 
 func inicializandoDialogo():
 	Nome.text = dados[id]["nome"]

@@ -71,11 +71,12 @@ position = Vector2(311, 240)
 [node name="Moveis" type="Node2D" parent="Elementos" unique_id=1991353690]
 y_sort_enabled = true
 
-[node name="EnteragePlayer" parent="Elementos/Moveis" unique_id=1605428017 instance=ExtResource("5_tayns")]
+[node name="Pia" parent="Elementos/Moveis" unique_id=1605428017 instance=ExtResource("5_tayns")]
 position = Vector2(180, 213)
 
-[node name="mesa" parent="Elementos/Moveis" unique_id=1505730108 instance=ExtResource("6_ryfhg")]
+[node name="mesa" parent="Elementos/Moveis" unique_id=1505730108 node_paths=PackedStringArray("GuadadorItens") instance=ExtResource("6_ryfhg")]
 position = Vector2(412, 138)
+GuadadorItens = NodePath("../../itens")
 
 [node name="Fogao" parent="Elementos/Moveis" unique_id=1510914623 instance=ExtResource("7_e046x")]
 position = Vector2(432, 267)
@@ -89,7 +90,7 @@ position = Vector2(87, 250)
 [node name="itens" type="Node2D" parent="Elementos" unique_id=687083256]
 
 [node name="chaleira" parent="Elementos/itens" unique_id=1782349878 instance=ExtResource("10_4vcml")]
-position = Vector2(415, 258)
+position = Vector2(403, 127)
 
 [node name="Ovos" parent="Elementos/itens" unique_id=115456944 instance=ExtResource("11_e7vsj")]
 position = Vector2(528, 160)
@@ -107,7 +108,7 @@ position = Vector2(535, 214)
 texture = ExtResource("11_ve5ur")
 
 [node name="Frigideira" parent="Elementos/itens" unique_id=1255155179 instance=ExtResource("12_hu0gs")]
-position = Vector2(447, 258)
+position = Vector2(123, 217)
 
 [node name="Copo" parent="Elementos/itens" unique_id=843866831 instance=ExtResource("14_1muu3")]
 position = Vector2(383, 148)

@@ -2,15 +2,17 @@
 
 [ext_resource type="Script" uid="uid://d4ja6n4d38qx3" path="res://Itens/Scripts/CliqueParaPegar.gd" id="1_daomr"]
 [ext_resource type="Texture2D" uid="uid://cdbujnvjxaykx" path="res://Itens/Sprites/Itens/Sprite-frigideira.png" id="2_8vgqn"]
+[ext_resource type="Script" uid="uid://somnp0nagubt" path="res://Itens/Scripts/Functions/FrigideiraFunction.gd" id="3_8vgqn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0h2g"]
 size = Vector2(19, 19)
 
-[node name="Frigideira" type="Area2D" unique_id=1255155179 node_paths=PackedStringArray("Mensagem")]
-z_index = 1
+[node name="Frigideira" type="Area2D" unique_id=1255155179 node_paths=PackedStringArray("funcao", "Mensagem")]
+z_index = 2
 y_sort_enabled = true
 script = ExtResource("1_daomr")
 corte = Rect2(0, 0, 21, 0)
+funcao = NodePath("FrigideiraFuncao")
 Mensagem = NodePath("Label")
 PosYOriginal = -21.0
 PosYOEscondida = -18.0
@@ -41,3 +43,7 @@ theme_override_font_sizes/font_size = 5
 text = ":Frigideira:"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="FrigideiraFuncao" type="Node" parent="." unique_id=412696336]
+script = ExtResource("3_8vgqn")
+metadata/_custom_type_script = "uid://somnp0nagubt"

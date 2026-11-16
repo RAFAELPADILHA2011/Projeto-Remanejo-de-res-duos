@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://clbmfncrharf7"]
 
-[ext_resource type="Script" uid="uid://dbcjcocy1r2mm" path="res://Itens/Scripts/Pia.gd" id="1_cxpib"]
+[ext_resource type="Script" uid="uid://dbcjcocy1r2mm" path="res://Itens/Scripts/BrilhoAoToque.gd" id="1_cxpib"]
 [ext_resource type="Texture2D" uid="uid://dd8p0kmf8wlgj" path="res://Itens/Sprites/moveis/Sprite-Pia.png" id="2_k6g1t"]
 [ext_resource type="Texture2D" uid="uid://cyqgwuu557ea0" path="res://Itens/Sprites/moveis/Sprite-balcaoPia.png" id="3_rrm3d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0h2g"]
 radius = 44.102154
 
-[node name="EnteragePlayer" type="CharacterBody2D" unique_id=1605428017 node_paths=PackedStringArray("Sprite", "Area")]
+[node name="Pia" type="CharacterBody2D" unique_id=1605428017 node_paths=PackedStringArray("Sprite", "Area")]
 y_sort_enabled = true
 script = ExtResource("1_cxpib")
 Sprite = NodePath("Sprite2D")

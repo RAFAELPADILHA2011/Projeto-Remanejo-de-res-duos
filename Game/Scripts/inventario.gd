@@ -10,8 +10,6 @@ var _botao : TextureButton = null
 
 var _atlas : AtlasTexture = null
 
-var _cenaItem : PackedScene = null
-
 var _item : InterageMouse = null
 
 var _slot_atual : int = 0
@@ -29,8 +27,9 @@ func _ready() -> void:
 		_botao.button_down.connect(removeItem.bind(_node))
 		if not Global.itemPegado.is_connected(adicionarItem): Global.itemPegado.connect(adicionarItem)
 		_botao = null
-		
-func adicionarItem(_texture : Texture2D, _cena : StringName, _corte : Rect2, _funcao : FunctionItem):
+
+@warning_ignore("shadowed_variable")
+func adicionarItem(_texture : Texture2D, _item : InterageMouse, _corte : Rect2, _funcao : FunctionItem):
 	for _slot : TextureButton in get_children():
 		if _slot.texture_normal == null:
 			_atlas = AtlasTexture.new()
@@ -49,14 +48,13 @@ func removeItem(_indice : int):
 		_itemFuncition = _botao.get_child(0) as FunctionItem
 		_itemFuncition.sair()
 		_itemFuncition.call_deferred("queue_free")
-	_cenaItem = load(Global.inventario[_indice].cena)
-	_item = _cenaItem.instantiate()
+	_item = Global.inventario[_indice].item
 	_item.global_position = player.global_position
 	guardadorItems.add_child(_item)
+	_item.aparecer()
 	Global.inventario.remove_at(_indice)
 	_botao.texture_normal = null
 	_botao = null
-	_cenaItem = null
 	_item = null
 	_itemFuncition = null
 	organizaInventario(_indice)

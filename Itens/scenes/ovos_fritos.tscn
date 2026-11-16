@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://baekfucts48sa"]
+
+[ext_resource type="Script" uid="uid://5gt1duk33e83" path="res://Itens/Scripts/ovos_fritos.gd" id="1_4bv42"]
+[ext_resource type="Texture2D" uid="uid://cbkbbiny526j5" path="res://Itens/Sprites/Itens/Sprite-OvosFritos.png" id="2_ejao0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bv42"]
+size = Vector2(20, 133)
+
+[node name="OvosFritos" type="Area2D" unique_id=1969038038 node_paths=PackedStringArray("Sprite")]
+z_index = 2
+y_sort_enabled = true
+script = ExtResource("1_4bv42")
+Sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1552370920]
+position = Vector2(0, -65.5)
+shape = SubResource("RectangleShape2D_4bv42")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201108688]
+z_index = 2
+y_sort_enabled = true
+position = Vector2(0, -66)
+texture = ExtResource("2_ejao0")
+hframes = 2
