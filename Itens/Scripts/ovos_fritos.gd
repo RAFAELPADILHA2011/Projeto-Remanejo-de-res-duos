@@ -45,7 +45,6 @@ func tweenSendoComido():
 	if tweenComido: tweenComido.kill()
 	tweenComido = create_tween().bind_node(self)
 	tweenComido.tween_property(self, "global_position", player.global_position, TEMPO)
-	if z <= 0: return
 	player.animacao("comendo")
 	await player.Anim.animation_finished
 	queue_free()
