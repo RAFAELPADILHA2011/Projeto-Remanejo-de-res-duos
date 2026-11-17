@@ -21,7 +21,7 @@ func playerColidindo(_area : Area2D):
 			Frigideira.get_node("Sprite2D").frame = 2
 			Frigideira.corte = Rect2(42.0, 0.0, 21.0, 0.0)
 			achaPratoDisponivel(Frigideira)
-			Global.PROGRESSAO = 4
+			Global.PROGRESSAO = 5
 			ovosFritos = OvosFritos.instantiate()
 			ovosFritos.global_position = jogador.global_position
 			ovosFritos.player = jogador

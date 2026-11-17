@@ -21,12 +21,13 @@ func playerColidindo(_area : Area2D):
 		if _area.name == FRIGIDEIRA and _area.get_node("Sprite2D").frame == 0:
 			Frigideira = _area
 			await achaBocaDisponivel(_area)
+			Global.PROGRESSAO = 3
 		elif _area.name == OVOS:
 			if Frigideira:
 				_area.queue_free()
 				Frigideira.get_node("Sprite2D").frame = 1
 				Frigideira.corte = Rect2(21.0, 0.0, 21.0, 0.0)
-				Global.PROGRESSAO = 3
+				Global.PROGRESSAO = 4
 
 	verificacao(_area)
 	if not jogador: return

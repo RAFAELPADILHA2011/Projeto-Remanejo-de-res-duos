@@ -18,7 +18,7 @@ PosYOEscondida = -13.0
 shape = SubResource("RectangleShape2D_h30r0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1201108688]
-z_index = 1
+z_index = 2
 y_sort_enabled = true
 texture = ExtResource("2_0kxub")
 hframes = 3

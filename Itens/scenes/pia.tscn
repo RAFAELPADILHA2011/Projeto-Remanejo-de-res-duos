@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dbcjcocy1r2mm" path="res://Itens/Scripts/BrilhoAoToque.gd" id="1_cxpib"]
 [ext_resource type="Texture2D" uid="uid://dd8p0kmf8wlgj" path="res://Itens/Sprites/moveis/Sprite-Pia.png" id="2_k6g1t"]
-[ext_resource type="Texture2D" uid="uid://cyqgwuu557ea0" path="res://Itens/Sprites/moveis/Sprite-balcaoPia.png" id="3_rrm3d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0h2g"]
 radius = 44.102154
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jqwh"]
+size = Vector2(141, 35)
 
 [node name="Pia" type="CharacterBody2D" unique_id=1605428017 node_paths=PackedStringArray("Sprite", "Area")]
 y_sort_enabled = true
@@ -13,11 +15,6 @@ script = ExtResource("1_cxpib")
 Sprite = NodePath("Sprite2D")
 Area = NodePath("Area2D")
 metadata/_custom_type_script = "uid://clkkj1e082sag"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1505064834]
-position = Vector2(16.762499, 14.456251)
-scale = Vector2(28.9375, 17.0625)
-polygon = PackedVector2Array(1.839741, 3.3139195, 1.839741, 1.4384615, -2.0306697, 1.4384615, -2.0306697, -5.0670333, -3.101944, -5.0670333, -3.101944, 3.3139195)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1770655925]
 
@@ -32,7 +29,6 @@ position = Vector2(0, 55)
 texture = ExtResource("2_k6g1t")
 hframes = 2
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=332371801]
-z_index = 2
-position = Vector2(-56.5, -20.5)
-texture = ExtResource("3_rrm3d")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=207498486]
+position = Vector2(-0.5, 56.5)
+shape = SubResource("RectangleShape2D_6jqwh")

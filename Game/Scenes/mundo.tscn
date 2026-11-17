@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xo77yosvs1a" path="res://Itens/scenes/geladeira.tscn" id="8_0bwyg"]
 [ext_resource type="PackedScene" uid="uid://ddt6lnywyrdyx" path="res://Itens/scenes/balcao.tscn" id="8_cth1h"]
 [ext_resource type="PackedScene" uid="uid://co7yllu4toda2" path="res://Itens/scenes/chaleira.tscn" id="10_4vcml"]
+[ext_resource type="PackedScene" uid="uid://cu4h54ea4bemw" path="res://Itens/scenes/balcao_pia.tscn" id="10_gefni"]
 [ext_resource type="PackedScene" uid="uid://bhug2oxmidure" path="res://Itens/scenes/ovos.tscn" id="11_e7vsj"]
 [ext_resource type="Texture2D" uid="uid://dveq11g7vugu8" path="res://Itens/Sprites/Itens/Sprite-GarrafaOleo.png" id="11_ve5ur"]
 [ext_resource type="PackedScene" uid="uid://c437suj8lyl15" path="res://Itens/scenes/frigideira.tscn" id="12_hu0gs"]
@@ -19,7 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://b26fkj4j7fd6r" path="res://Itens/scenes/luvas.tscn" id="16_ftuib"]
 [ext_resource type="PackedScene" uid="uid://b74p78nn435en" path="res://Itens/scenes/oculos_protecao.tscn" id="17_im2oi"]
 [ext_resource type="PackedScene" uid="uid://i7wuk43it0xs" path="res://Itens/scenes/saco_lixo.tscn" id="18_invyn"]
+[ext_resource type="PackedScene" uid="uid://byokte1j1v54" path="res://Itens/scenes/garrafa_pet.tscn" id="19_hvxbp"]
 [ext_resource type="PackedScene" uid="uid://b2umye4fmwwu7" path="res://Game/Scenes/inventario.tscn" id="19_im2oi"]
+[ext_resource type="PackedScene" uid="uid://xeu6v8w0uc2k" path="res://Itens/scenes/pote.tscn" id="20_y3rg5"]
+[ext_resource type="PackedScene" uid="uid://cfrg0mveibdi7" path="res://Itens/scenes/alcool.tscn" id="21_nqw2e"]
+[ext_resource type="PackedScene" uid="uid://dgmhrnp0pqrjp" path="res://Itens/scenes/colher.tscn" id="22_hl0gf"]
+[ext_resource type="PackedScene" uid="uid://cs0p2yyvww3tl" path="res://Itens/scenes/peneira.tscn" id="23_hl0gf"]
 
 [sub_resource type="Environment" id="Environment_iqat7"]
 background_mode = 3
@@ -87,6 +93,9 @@ position = Vector2(528, 176)
 [node name="Geladeira" parent="Elementos/Moveis" unique_id=1375789181 instance=ExtResource("8_0bwyg")]
 position = Vector2(87, 250)
 
+[node name="BalcaoPia" parent="Elementos/Moveis" unique_id=1519932359 instance=ExtResource("10_gefni")]
+position = Vector2(123.5, 193)
+
 [node name="itens" type="Node2D" parent="Elementos" unique_id=687083256]
 
 [node name="chaleira" parent="Elementos/itens" unique_id=1782349878 instance=ExtResource("10_4vcml")]
@@ -108,7 +117,7 @@ position = Vector2(535, 214)
 texture = ExtResource("11_ve5ur")
 
 [node name="Frigideira" parent="Elementos/itens" unique_id=1255155179 instance=ExtResource("12_hu0gs")]
-position = Vector2(123, 217)
+position = Vector2(125, 189)
 
 [node name="Copo" parent="Elementos/itens" unique_id=843866831 instance=ExtResource("14_1muu3")]
 position = Vector2(383, 148)
@@ -117,19 +126,34 @@ position = Vector2(383, 148)
 position = Vector2(133, 270)
 
 [node name="Luvas" parent="Elementos/itens" unique_id=2010416791 instance=ExtResource("16_ftuib")]
-position = Vector2(165, 267)
+position = Vector2(168, 259)
 
 [node name="OculosProtecao" parent="Elementos/itens" unique_id=1966271430 instance=ExtResource("17_im2oi")]
 position = Vector2(86, 226)
 
 [node name="Copo2" parent="Elementos/itens" unique_id=1602229761 instance=ExtResource("14_1muu3")]
-position = Vector2(116, 157)
+position = Vector2(114, 155)
 
 [node name="Copo3" parent="Elementos/itens" unique_id=1996455545 instance=ExtResource("14_1muu3")]
-position = Vector2(126, 186)
+position = Vector2(132, 164)
 
 [node name="SacoLixo" parent="Elementos/itens" unique_id=862280770 instance=ExtResource("18_invyn")]
-position = Vector2(118, 258)
+position = Vector2(119, 236)
+
+[node name="GarrafaPet" parent="Elementos/itens" unique_id=982959113 instance=ExtResource("19_hvxbp")]
+position = Vector2(428.50967, 102.32401)
+
+[node name="Pote" parent="Elementos/itens" unique_id=987720691 instance=ExtResource("20_y3rg5")]
+position = Vector2(130, 146)
+
+[node name="Alcool" parent="Elementos/itens" unique_id=1467107503 instance=ExtResource("21_nqw2e")]
+position = Vector2(117, 257)
+
+[node name="Colher" parent="Elementos/itens" unique_id=131882233 instance=ExtResource("22_hl0gf")]
+position = Vector2(230, 269)
+
+[node name="Peneira" parent="Elementos/itens" unique_id=335747965 instance=ExtResource("23_hl0gf")]
+position = Vector2(239, 257)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=316322369 node_paths=PackedStringArray("dirLuz", "Tempo")]
 environment = SubResource("Environment_iqat7")
