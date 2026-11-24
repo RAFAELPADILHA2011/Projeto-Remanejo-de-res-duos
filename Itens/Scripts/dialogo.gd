@@ -1,6 +1,8 @@
 extends CanvasLayer
 class_name TelaDialogo
 
+signal acabaDialogo()
+
 @export_category("Objetos")
 
 @export var Nome : Label = null
@@ -19,9 +21,9 @@ const MAX_TEXTO_VISIVEL : float = 1
 
 const QTD_CARACTERE : int = 1
 
-const MIN_PASSO_TEXTO : float = 0.01
+const MIN_PASSO_TEXTO : float = 0.005
 
-const MAX_PASSO_TEXTO : float = 0.05
+const MAX_PASSO_TEXTO : float = 0.025
 
 var passoTexto : float = MAX_PASSO_TEXTO
 
@@ -68,6 +70,7 @@ func saindoDeTela():
 	emTela = false
 	Anim.play("saida")
 	await Anim.animation_finished
+	acabaDialogo.emit()
 	queue_free()
 
 func inicializandoDialogo():

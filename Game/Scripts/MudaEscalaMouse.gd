@@ -9,6 +9,7 @@ const TEMPO : float = 0.25
 var tweenEscala : Tween = null
 
 func _ready() -> void:
+    focus_mode = Control.FOCUS_NONE
     mouse_entered.connect(aumenta)
     mouse_exited.connect(diminui)
 

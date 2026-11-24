@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clbmfncrharf7"]
 
-[ext_resource type="Script" uid="uid://dbcjcocy1r2mm" path="res://Itens/Scripts/BrilhoAoToque.gd" id="1_cxpib"]
+[ext_resource type="Script" uid="uid://ogowmcnra0wu" path="res://Itens/Scripts/pia.gd" id="1_1rna0"]
 [ext_resource type="Texture2D" uid="uid://dd8p0kmf8wlgj" path="res://Itens/Sprites/moveis/Sprite-Pia.png" id="2_k6g1t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k0h2g"]
@@ -9,9 +9,10 @@ radius = 44.102154
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jqwh"]
 size = Vector2(141, 35)
 
-[node name="Pia" type="CharacterBody2D" unique_id=1605428017 node_paths=PackedStringArray("Sprite", "Area")]
+[node name="Pia" type="CharacterBody2D" unique_id=1605428017 node_paths=PackedStringArray("Pia", "Sprite", "Area")]
 y_sort_enabled = true
-script = ExtResource("1_cxpib")
+script = ExtResource("1_1rna0")
+Pia = NodePath("Marker2D")
 Sprite = NodePath("Sprite2D")
 Area = NodePath("Area2D")
 metadata/_custom_type_script = "uid://clkkj1e082sag"
@@ -32,3 +33,6 @@ hframes = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=207498486]
 position = Vector2(-0.5, 56.5)
 shape = SubResource("RectangleShape2D_6jqwh")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1276310087]
+position = Vector2(16, 49)

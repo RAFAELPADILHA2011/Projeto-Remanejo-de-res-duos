@@ -26,6 +26,7 @@ func _process(_delta: float):
 		dialogo = DialogoTela.instantiate()
 		add_child(dialogo)
 		dialogo.dados = Dialogos.escolhaDialogo(Global.PROGRESSAO)
+		dialogo.acabaDialogo.connect(posFala)
 		dialogo.entrandoEmTela()
 
 func playerColidindo(_area : Area2D):
@@ -46,3 +47,22 @@ func playerNaoColidindo(_area : Area2D):
 	tweenPrecionar.tween_property(Mensagem, "modulate", COR_ESCONDIDA, TEMPO)
 	await tweenPrecionar.finished
 	possoComecarDialogo = false
+
+func posFala():
+	if Global.PROGRESSAO == 1:
+		insereBalao("ovo_frito")
+	elif Global.PROGRESSAO == 6 or Global.PROGRESSAO == 7:
+		insereBalao("copo_oleo")
+		if Global.PROGRESSAO == 6: Global.PROGRESSAO = 7
+	elif Global.PROGRESSAO == 8:
+		insereBalao("chaleira_agua")
+	elif Global.PROGRESSAO == 9 or Global.PROGRESSAO == 10:
+		insereBalao("chaleira_morna")
+		
+	
+
+func insereBalao(_receita : String = ""):
+	if _receita == "": return
+	jogador.BalaoReceita.entrar(jogador.BalaoReceita.RECEITAS[_receita])
+	await get_tree().create_timer(6).timeout
+	jogador.BalaoReceita.sair()

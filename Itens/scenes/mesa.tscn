@@ -9,8 +9,8 @@ radius = 42.0
 height = 126.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iismu"]
-radius = 55.0
-height = 144.0
+radius = 60.0
+height = 160.0
 
 [node name="mesa" type="CharacterBody2D" unique_id=598407833 node_paths=PackedStringArray("Pratos", "Sprite", "Area")]
 y_sort_enabled = true

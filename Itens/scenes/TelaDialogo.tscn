@@ -197,6 +197,7 @@ theme_override_font_sizes/normal_font_size = 10
 text = "Olá! serei o responsável que lhe ensinará a reaproveitar essas garrafas de óleo surradas.
 (Precione 'Enter para continuar')"
 visible_characters = 0
+visible_characters_behavior = 1
 visible_ratio = 0.0
 
 [node name="Pular" type="TextureButton" parent="CaixaDialogo" unique_id=1930691753]

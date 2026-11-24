@@ -8,13 +8,15 @@ const FRIGIDEIRA : String = "Frigideira"
 
 const OVOS : String = "Ovos"
 
-const CHALEIRA : String = ""
+const CHALEIRA : String = "Chaleira"
 
 var _boca_disponivel : Marker2D = null
 
 var tweenPos : Tween = null
 
 var Frigideira : InterageMouse = null
+
+var Chaleira : InterageMouse = null
 
 func playerColidindo(_area : Area2D):
 	if _area is InterageMouse:
@@ -28,6 +30,13 @@ func playerColidindo(_area : Area2D):
 				Frigideira.get_node("Sprite2D").frame = 1
 				Frigideira.corte = Rect2(21.0, 0.0, 21.0, 0.0)
 				Global.PROGRESSAO = 4
+		elif _area.name == CHALEIRA and _area.get_node("Sprite2D").frame == 1:
+			Chaleira = _area
+			await achaBocaDisponivel(Chaleira)
+			Chaleira.get_node("Sprite2D").frame = 2
+			Chaleira.corte = Rect2(30.0, 0.0, 15.0, 0.0)
+			Global.PROGRESSAO = 10
+			Chaleira = null
 
 	verificacao(_area)
 	if not jogador: return

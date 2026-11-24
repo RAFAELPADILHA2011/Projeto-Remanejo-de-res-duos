@@ -9,8 +9,9 @@ size = Vector2(32, 109)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6jqwh"]
 radius = 40.0
 
-[node name="BalcaoPia" type="CharacterBody2D" unique_id=1519932359 node_paths=PackedStringArray("Sprite", "Area")]
+[node name="BalcaoPia" type="CharacterBody2D" unique_id=1519932359 node_paths=PackedStringArray("Tabua", "Sprite", "Area")]
 script = ExtResource("1_ruolu")
+Tabua = NodePath("Marker2D")
 Sprite = NodePath("Sprite2D")
 Area = NodePath("Area2D")
 metadata/_custom_type_script = "uid://dbcjcocy1r2mm"

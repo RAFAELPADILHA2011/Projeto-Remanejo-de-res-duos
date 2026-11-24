@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ce2ubgvnrmr2h" path="res://Itens/Scripts/Player.gd" id="1_82i17"]
 [ext_resource type="Texture2D" uid="uid://bnt1raqsxe6h4" path="res://Itens/Sprites/Sprite-Player.png" id="1_wydmf"]
 [ext_resource type="Texture2D" uid="uid://qj3lypg2dpbp" path="res://Itens/Sprites/Sprite-shadow.png" id="2_ibx38"]
+[ext_resource type="Texture2D" uid="uid://dvvmiijia1s6c" path="res://Itens/Sprites/Sprite-PlayerOculos.png" id="3_3l4bn"]
 [ext_resource type="AudioStream" uid="uid://5mawe8glyttr" path="res://Itens/Sounds/SFX-WalkPlayer.wav" id="4_7viyo"]
 [ext_resource type="Script" uid="uid://db4eoxbfhk32c" path="res://Itens/Scripts/SoundEffect.gd" id="5_3aqtu"]
 [ext_resource type="PackedScene" uid="uid://bopp8vk0hpacg" path="res://Game/Scenes/balao_receita.tscn" id="6_npb2y"]
@@ -146,6 +147,8 @@ Anim = NodePath("Sprite2D/AnimationPlayer")
 Sprite = NodePath("Sprite2D")
 SomAndar = NodePath("walk")
 BalaoReceita = NodePath("BalaoReceita")
+SpriteNormal = ExtResource("1_wydmf")
+SpriteOculos = ExtResource("3_3l4bn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=26733964]
 visible = false

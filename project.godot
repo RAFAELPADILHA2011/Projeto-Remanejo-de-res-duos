@@ -13,6 +13,8 @@ config_version=5
 config/name="Projeto Final"
 run/main_scene="uid://drtgk865y855d"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.021419518, 0.00056331477, 0.08648161, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

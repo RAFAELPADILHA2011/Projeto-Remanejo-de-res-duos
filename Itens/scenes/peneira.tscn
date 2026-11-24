@@ -9,6 +9,7 @@
 z_index = 2
 y_sort_enabled = true
 script = ExtResource("1_xjcyn")
+corte = Rect2(0, 0, 18, 0)
 Mensagem = NodePath("Label")
 PosYOriginal = -17.0
 PosYOEscondida = -12.0
@@ -20,6 +21,7 @@ shape = SubResource("RectangleShape2D_5c6t1")
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("2_1d1oe")
+hframes = 2
 
 [node name="Label" type="Label" parent="." unique_id=929659700]
 modulate = Color(0.14509805, 0.08627451, 0.30980393, 0)

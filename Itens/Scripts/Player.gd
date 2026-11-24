@@ -12,7 +12,13 @@ class_name Player
 
 @export var possoMover : bool = true
 
-const VEL : float = 300
+@export_group("Sprites")
+
+@export var SpriteNormal : Texture2D = null
+
+@export var SpriteOculos : Texture2D = null
+
+const VEL : float = 250
 
 const ACEL : float = 0.3
 
@@ -38,10 +44,13 @@ func _ready() -> void:
 
 func _process(_delta : float):
 	move(_delta)
+	Sprite.texture = SpriteNormal if Global.tenhoOculos == false else SpriteOculos
 	move_and_slide()
 
 func move(_delta : float):
-	if not possoMover: return
+	if not possoMover:
+		velocity = Vector2.ZERO
+		return
 
 	dt = _delta * 60
 

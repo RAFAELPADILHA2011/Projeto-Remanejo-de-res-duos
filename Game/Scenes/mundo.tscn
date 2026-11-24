@@ -94,11 +94,12 @@ position = Vector2(528, 176)
 position = Vector2(87, 250)
 
 [node name="BalcaoPia" parent="Elementos/Moveis" unique_id=1519932359 instance=ExtResource("10_gefni")]
+z_index = 1
 position = Vector2(123.5, 193)
 
 [node name="itens" type="Node2D" parent="Elementos" unique_id=687083256]
 
-[node name="chaleira" parent="Elementos/itens" unique_id=1782349878 instance=ExtResource("10_4vcml")]
+[node name="Chaleira" parent="Elementos/itens" unique_id=1782349878 instance=ExtResource("10_4vcml")]
 position = Vector2(403, 127)
 
 [node name="Ovos" parent="Elementos/itens" unique_id=115456944 instance=ExtResource("11_e7vsj")]
@@ -132,10 +133,10 @@ position = Vector2(168, 259)
 position = Vector2(86, 226)
 
 [node name="Copo2" parent="Elementos/itens" unique_id=1602229761 instance=ExtResource("14_1muu3")]
-position = Vector2(114, 155)
+position = Vector2(113, 146)
 
 [node name="Copo3" parent="Elementos/itens" unique_id=1996455545 instance=ExtResource("14_1muu3")]
-position = Vector2(132, 164)
+position = Vector2(157, 271)
 
 [node name="SacoLixo" parent="Elementos/itens" unique_id=862280770 instance=ExtResource("18_invyn")]
 position = Vector2(119, 236)
